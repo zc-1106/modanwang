@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080"><defs>
+    <radialGradient id="bgGlow" cx="50%" cy="45%"> <stop offset="0%" stop-color="#2e86c1" stop-opacity=".35"/> <stop offset="60%" stop-color="#1a5276" stop-opacity=".12"/> <stop offset="100%" stop-color="#0a0a14" stop-opacity="1"/> </radialGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="50%"> <stop offset="0%" stop-color="#5dade2" stop-opacity=".9"/> <stop offset="50%" stop-color="#2e86c1" stop-opacity=".4"/> <stop offset="100%" stop-color="#2e86c1" stop-opacity="0"/> </radialGradient>
+    <radialGradient id="innerLight" cx="50%" cy="40%"> <stop offset="0%" stop-color="#fff" stop-opacity=".4"/> <stop offset="100%" stop-color="#fff" stop-opacity="0"/> </radialGradient>
+    <linearGradient id="titleBar" x1="0" y1="0" x2="1" y2="0"> <stop offset="0%" stop-color="#2e86c1" stop-opacity="0"/> <stop offset="20%" stop-color="#2e86c1" stop-opacity=".8"/> <stop offset="80%" stop-color="#2e86c1" stop-opacity=".8"/> <stop offset="100%" stop-color="#2e86c1" stop-opacity="0"/> </linearGradient>
+    <linearGradient id="cardBorder" x1="0" y1="0" x2="1" y2="1"> <stop offset="0%" stop-color="#5dade2"/> <stop offset="50%" stop-color="#2e86c1"/> <stop offset="100%" stop-color="#0d3b5e"/> </linearGradient>
+    <linearGradient id="nameGlow" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#5dade2"/> <stop offset="100%" stop-color="#2e86c1"/> </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="softGlow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="bigGlow"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs><rect width="1080" height="1080" fill="url(#bgGlow)"/>
+    <!-- 网格线 -->
+    <g opacity=".03"><line x1="0" y1="0" x2="1080" y2="0" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="0" y1="0" x2="0" y2="1080" stroke="#2e86c1" stroke-width="1"/><line x1="0" y1="108" x2="1080" y2="108" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="108" y1="0" x2="108" y2="1080" stroke="#2e86c1" stroke-width="1"/><line x1="0" y1="216" x2="1080" y2="216" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="216" y1="0" x2="216" y2="1080" stroke="#2e86c1" stroke-width="1"/><line x1="0" y1="324" x2="1080" y2="324" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="324" y1="0" x2="324" y2="1080" stroke="#2e86c1" stroke-width="1"/><line x1="0" y1="432" x2="1080" y2="432" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="432" y1="0" x2="432" y2="1080" stroke="#2e86c1" stroke-width="1"/><line x1="0" y1="540" x2="1080" y2="540" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="540" y1="0" x2="540" y2="1080" stroke="#2e86c1" stroke-width="1"/><line x1="0" y1="648" x2="1080" y2="648" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="648" y1="0" x2="648" y2="1080" stroke="#2e86c1" stroke-width="1"/><line x1="0" y1="756" x2="1080" y2="756" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="756" y1="0" x2="756" y2="1080" stroke="#2e86c1" stroke-width="1"/><line x1="0" y1="864" x2="1080" y2="864" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="864" y1="0" x2="864" y2="1080" stroke="#2e86c1" stroke-width="1"/><line x1="0" y1="972" x2="1080" y2="972" stroke="#2e86c1" stroke-width="1"/>
+       <line x1="972" y1="0" x2="972" y2="1080" stroke="#2e86c1" stroke-width="1"/></g><ellipse cx="540" cy="400" rx="320" ry="320" fill="none" stroke="#2e86c1" stroke-width="2" opacity=".15">
+      <animateTransform attributeName="transform" type="rotate" from="0 540 400" to="360 540 400" dur="60s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="540" cy="400" rx="280" ry="280" fill="none" stroke="#5dade2" stroke-width="1" opacity=".1" stroke-dasharray="20 10">
+      <animateTransform attributeName="transform" type="rotate" from="360 540 400" to="0 540 400" dur="40s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="540" cy="400" rx="360" ry="360" fill="none" stroke="#2e86c1" stroke-width="1" opacity=".06" stroke-dasharray="8 16"/><circle cx="540" cy="380" r="180" fill="url(#coreGlow)" filter="url(#bigGlow)" opacity=".6"/>
+    <circle cx="540" cy="380" r="100" fill="url(#coreGlow)" opacity=".3"/><g opacity=".3">
+    <!-- 甲壳纹理 -->
+    <path d="M440,380 L540,340 L640,380 L540,420 Z" fill="none" stroke="#5dade2" stroke-width="1.5" opacity=".2"/>
+    <path d="M460,420 L540,390 L620,420 L540,450 Z" fill="none" stroke="#5dade2" stroke-width="1" opacity=".15"/>
+    <circle cx="460" cy="360" r="8" fill="#2e86c1" opacity=".1"/>
+    <circle cx="620" cy="360" r="8" fill="#2e86c1" opacity=".1"/>
+  </g><text x="540" y="420" text-anchor="middle" font-size="140" filter="url(#glow)">💧</text><circle cx="416.86098523845567" cy="163.83260152078017" r="2.9318129601669454" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="5.176997507580975s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="163.83260152078017;150.18781653515788;163.83260152078017" dur="5.176997507580975s" repeatCount="indefinite"/>
+    </circle><circle cx="671.5344171872022" cy="464.8375488345561" r="2.0422268790963494" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="4.140507712402371s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="464.8375488345561;445.02601429591533;464.8375488345561" dur="4.140507712402371s" repeatCount="indefinite"/>
+    </circle><circle cx="370.7893611378114" cy="309.53224196406745" r="1.7756055756933127" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="4.48522702781203s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="309.53224196406745;297.16002576520236;309.53224196406745" dur="4.48522702781203s" repeatCount="indefinite"/>
+    </circle><circle cx="651.1813578247614" cy="248.72284622829974" r="3.0032928253811786" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="3.7761329120185265s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="248.72284622829974;238.11170559135545;248.72284622829974" dur="3.7761329120185265s" repeatCount="indefinite"/>
+    </circle><circle cx="643.4492819259926" cy="185.618853704681" r="2.038082128608388" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="3.4024712180458017s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="185.618853704681;171.87151836874312;185.618853704681" dur="3.4024712180458017s" repeatCount="indefinite"/>
+    </circle><circle cx="736.828930358828" cy="339.046292083716" r="4.368844392711475" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="5.701686117131766s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="339.046292083716;324.0579003118293;339.046292083716" dur="5.701686117131766s" repeatCount="indefinite"/>
+    </circle><circle cx="665.17460463679" cy="601.3958043643929" r="3.89429881890392" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="5.894338086500981s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="601.3958043643929;577.1571857225056;601.3958043643929" dur="5.894338086500981s" repeatCount="indefinite"/>
+    </circle><circle cx="301.6258334598185" cy="569.9939341825539" r="2.0704042375251843" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="5.665413896152209s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="569.9939341825539;543.7364763550096;569.9939341825539" dur="5.665413896152209s" repeatCount="indefinite"/>
+    </circle><circle cx="255.52851239282916" cy="124.98554124640101" r="2.875161200835938" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="3.1881919844636886s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="124.98554124640101;109.60491673652365;124.98554124640101" dur="3.1881919844636886s" repeatCount="indefinite"/>
+    </circle><circle cx="340.9355311752098" cy="216.3567460484318" r="4.206765488747424" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="5.015061418228399s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="216.3567460484318;197.39976693882952;216.3567460484318" dur="5.015061418228399s" repeatCount="indefinite"/>
+    </circle><circle cx="781.23159856742" cy="382.7155973920469" r="1.9567596328760588" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="5.010243703764006s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="382.7155973920469;361.4316073385999;382.7155973920469" dur="5.010243703764006s" repeatCount="indefinite"/>
+    </circle><circle cx="253.89803194702324" cy="102.92137390486813" r="3.597478121852418" fill="#5dade2" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="3.3513884056264853s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="102.92137390486813;76.07201534652215;102.92137390486813" dur="3.3513884056264853s" repeatCount="indefinite"/>
+    </circle><rect x="40" y="750" width="1000" height="300" rx="20" fill="rgba(10,10,20,.85)" stroke="url(#cardBorder)" stroke-width="3"/>
+    <rect x="40" y="750" width="1000" height="300" rx="20" fill="url(#innerLight)" opacity=".06"/><text x="540" y="835" text-anchor="middle" font-size="64" font-weight="900" fill="url(#nameGlow)" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" filter="url(#glow)">寒霜灵鳄</text>
+    <text x="540" y="890" text-anchor="middle" font-size="28" fill="#5dade2" font-family="'PingFang SC','Microsoft YaHei',sans-serif" opacity=".85">冰河猎手</text>
+    <text x="540" y="940" text-anchor="middle" font-size="22" fill="#5dade2" opacity=".5">💧 水属性</text>
+    <!-- 底部属性色条 -->
+    <rect x="300" y="970" width="480" height="4" rx="2" fill="#2e86c1" opacity=".6"/>
+    <rect x="350" y="984" width="380" height="2" rx="1" fill="#2e86c1" opacity=".3"/></svg>

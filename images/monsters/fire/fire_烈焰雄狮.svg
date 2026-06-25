@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080"><defs>
+    <radialGradient id="bgGlow" cx="50%" cy="45%"> <stop offset="0%" stop-color="#e74c3c" stop-opacity=".35"/> <stop offset="60%" stop-color="#c0392b" stop-opacity=".12"/> <stop offset="100%" stop-color="#0a0a14" stop-opacity="1"/> </radialGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="50%"> <stop offset="0%" stop-color="#ff6b6b" stop-opacity=".9"/> <stop offset="50%" stop-color="#e74c3c" stop-opacity=".4"/> <stop offset="100%" stop-color="#e74c3c" stop-opacity="0"/> </radialGradient>
+    <radialGradient id="innerLight" cx="50%" cy="40%"> <stop offset="0%" stop-color="#fff" stop-opacity=".4"/> <stop offset="100%" stop-color="#fff" stop-opacity="0"/> </radialGradient>
+    <linearGradient id="titleBar" x1="0" y1="0" x2="1" y2="0"> <stop offset="0%" stop-color="#e74c3c" stop-opacity="0"/> <stop offset="20%" stop-color="#e74c3c" stop-opacity=".8"/> <stop offset="80%" stop-color="#e74c3c" stop-opacity=".8"/> <stop offset="100%" stop-color="#e74c3c" stop-opacity="0"/> </linearGradient>
+    <linearGradient id="cardBorder" x1="0" y1="0" x2="1" y2="1"> <stop offset="0%" stop-color="#ff6b6b"/> <stop offset="50%" stop-color="#e74c3c"/> <stop offset="100%" stop-color="#8b1a1a"/> </linearGradient>
+    <linearGradient id="nameGlow" x1="0" y1="0" x2="0" y2="1"> <stop offset="0%" stop-color="#ff6b6b"/> <stop offset="100%" stop-color="#e74c3c"/> </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="softGlow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="bigGlow"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs><rect width="1080" height="1080" fill="url(#bgGlow)"/>
+    <!-- 网格线 -->
+    <g opacity=".03"><line x1="0" y1="0" x2="1080" y2="0" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="0" y1="0" x2="0" y2="1080" stroke="#e74c3c" stroke-width="1"/><line x1="0" y1="108" x2="1080" y2="108" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="108" y1="0" x2="108" y2="1080" stroke="#e74c3c" stroke-width="1"/><line x1="0" y1="216" x2="1080" y2="216" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="216" y1="0" x2="216" y2="1080" stroke="#e74c3c" stroke-width="1"/><line x1="0" y1="324" x2="1080" y2="324" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="324" y1="0" x2="324" y2="1080" stroke="#e74c3c" stroke-width="1"/><line x1="0" y1="432" x2="1080" y2="432" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="432" y1="0" x2="432" y2="1080" stroke="#e74c3c" stroke-width="1"/><line x1="0" y1="540" x2="1080" y2="540" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="540" y1="0" x2="540" y2="1080" stroke="#e74c3c" stroke-width="1"/><line x1="0" y1="648" x2="1080" y2="648" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="648" y1="0" x2="648" y2="1080" stroke="#e74c3c" stroke-width="1"/><line x1="0" y1="756" x2="1080" y2="756" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="756" y1="0" x2="756" y2="1080" stroke="#e74c3c" stroke-width="1"/><line x1="0" y1="864" x2="1080" y2="864" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="864" y1="0" x2="864" y2="1080" stroke="#e74c3c" stroke-width="1"/><line x1="0" y1="972" x2="1080" y2="972" stroke="#e74c3c" stroke-width="1"/>
+       <line x1="972" y1="0" x2="972" y2="1080" stroke="#e74c3c" stroke-width="1"/></g><ellipse cx="540" cy="400" rx="320" ry="320" fill="none" stroke="#e74c3c" stroke-width="2" opacity=".15">
+      <animateTransform attributeName="transform" type="rotate" from="0 540 400" to="360 540 400" dur="60s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="540" cy="400" rx="280" ry="280" fill="none" stroke="#ff6b6b" stroke-width="1" opacity=".1" stroke-dasharray="20 10">
+      <animateTransform attributeName="transform" type="rotate" from="360 540 400" to="0 540 400" dur="40s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="540" cy="400" rx="360" ry="360" fill="none" stroke="#e74c3c" stroke-width="1" opacity=".06" stroke-dasharray="8 16"/><circle cx="540" cy="380" r="180" fill="url(#coreGlow)" filter="url(#bigGlow)" opacity=".6"/>
+    <circle cx="540" cy="380" r="100" fill="url(#coreGlow)" opacity=".3"/><g opacity=".25">
+    <circle cx="380" cy="320" r="30" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+    <circle cx="700" cy="320" r="30" fill="none" stroke="#ff6b6b" stroke-width="2"/>
+    <!-- 能量鬃毛 -->
+    <path d="M540,280 Q450,200 380,160" fill="none" stroke="#e74c3c" stroke-width="3" opacity=".3"/>
+    <path d="M540,280 Q630,200 700,160" fill="none" stroke="#e74c3c" stroke-width="3" opacity=".3"/>
+    <path d="M540,280 Q500,180 460,140" fill="none" stroke="#ff6b6b" stroke-width="2" opacity=".2"/>
+    <path d="M540,280 Q580,180 620,140" fill="none" stroke="#ff6b6b" stroke-width="2" opacity=".2"/>
+  </g><text x="540" y="420" text-anchor="middle" font-size="140" filter="url(#glow)">🔥</text><circle cx="758.115734499337" cy="242.51755776592438" r="4.068834263568203" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="2.692759412375932s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="242.51755776592438;213.32685530169445;242.51755776592438" dur="2.692759412375932s" repeatCount="indefinite"/>
+    </circle><circle cx="362.4110183541188" cy="451.0087927281892" r="4.2235995451373505" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="2.575907391262772s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="451.0087927281892;425.79195566423704;451.0087927281892" dur="2.575907391262772s" repeatCount="indefinite"/>
+    </circle><circle cx="627.984655931534" cy="596.2536500355006" r="1.8394033773964766" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="2.8036531053072284s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="596.2536500355006;575.6144101159606;596.2536500355006" dur="2.8036531053072284s" repeatCount="indefinite"/>
+    </circle><circle cx="583.1733172214437" cy="228.7141697323189" r="1.5521738561617657" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="3.387181946044437s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="228.7141697323189;214.11363910847174;228.7141697323189" dur="3.387181946044437s" repeatCount="indefinite"/>
+    </circle><circle cx="868.9950286221497" cy="292.62241552502036" r="1.7820527723219621" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="4.829565033340066s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="292.62241552502036;279.0200621616907;292.62241552502036" dur="4.829565033340066s" repeatCount="indefinite"/>
+    </circle><circle cx="352.5756253710176" cy="103.69492192964074" r="2.968611456705081" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="5.44857055000152s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="103.69492192964074;77.10781603594073;103.69492192964074" dur="5.44857055000152s" repeatCount="indefinite"/>
+    </circle><circle cx="371.8743457906729" cy="475.02186440097057" r="1.901845972244284" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="3.4391459745103163s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="475.02186440097057;455.45597691133656;475.02186440097057" dur="3.4391459745103163s" repeatCount="indefinite"/>
+    </circle><circle cx="649.2220331499823" cy="246.6228574473883" r="3.900982312801859" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="2.1421091655286797s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="246.6228574473883;226.62114971843937;246.6228574473883" dur="2.1421091655286797s" repeatCount="indefinite"/>
+    </circle><circle cx="729.6659861162035" cy="286.32166486116125" r="2.8047659314017315" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="2.361496527277471s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="286.32166486116125;275.5200313931162;286.32166486116125" dur="2.361496527277471s" repeatCount="indefinite"/>
+    </circle><circle cx="752.5301391550588" cy="513.3402449035401" r="3.2587830802485707" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="5.835766235545023s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="513.3402449035401;494.06646769188796;513.3402449035401" dur="5.835766235545023s" repeatCount="indefinite"/>
+    </circle><circle cx="277.9040171288266" cy="470.36654644917655" r="4.2129465402266915" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="4.9029684014675645s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="470.36654644917655;454.9058452025999;470.36654644917655" dur="4.9029684014675645s" repeatCount="indefinite"/>
+    </circle><circle cx="266.18396850512624" cy="121.5669502677001" r="1.5425191188332819" fill="#ff6b6b" opacity=".3">
+      <animate attributeName="opacity" values=".1;.5;.1" dur="4.4296315039619785s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="121.5669502677001;110.53813217114461;121.5669502677001" dur="4.4296315039619785s" repeatCount="indefinite"/>
+    </circle><rect x="40" y="750" width="1000" height="300" rx="20" fill="rgba(10,10,20,.85)" stroke="url(#cardBorder)" stroke-width="3"/>
+    <rect x="40" y="750" width="1000" height="300" rx="20" fill="url(#innerLight)" opacity=".06"/><text x="540" y="835" text-anchor="middle" font-size="64" font-weight="900" fill="url(#nameGlow)" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" filter="url(#glow)">烈焰雄狮</text>
+    <text x="540" y="890" text-anchor="middle" font-size="28" fill="#ff6b6b" font-family="'PingFang SC','Microsoft YaHei',sans-serif" opacity=".85">草原支配者</text>
+    <text x="540" y="940" text-anchor="middle" font-size="22" fill="#ff6b6b" opacity=".5">🔥 火属性</text>
+    <!-- 底部属性色条 -->
+    <rect x="300" y="970" width="480" height="4" rx="2" fill="#e74c3c" opacity=".6"/>
+    <rect x="350" y="984" width="380" height="2" rx="1" fill="#e74c3c" opacity=".3"/></svg>

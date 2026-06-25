@@ -47,6 +47,10 @@ input:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(240,192,64,.2)}
   border:2px solid rgba(255,255,255,.2);border-radius:10px;box-shadow:0 3px 0 rgba(255,255,255,.06);}
 .btn-sm{padding:5px 12px;font-size:11px;border-radius:8px}
 .btn-d{background:linear-gradient(180deg,#e74c3c 0%,#a8231a 100%);color:#fff;padding:8px 18px;font-size:14px;border:2px solid #8b1a1a;border-radius:10px;box-shadow:0 3px 0 #6b1010}
+.btn-pes{background:linear-gradient(180deg,#ffd700 0%,#f0a000 50%,#d08000 100%);color:#1a1a2e;padding:7px 16px;font-size:13px;
+  border:2px solid #b8860b;border-radius:10px;box-shadow:0 3px 0 #8b6914,0 0 14px rgba(240,192,64,.35);font-weight:900}
+.btn-pes:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 4px 0 #8b6914,0 0 20px rgba(240,192,64,.5)}
+.btn-pes:active{transform:scale(.95)}
 
 /* 页面容器 */
 .page{display:none;flex-direction:column;padding:16px 12px;min-height:100vh}
@@ -140,22 +144,22 @@ input:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(240,192,64,.2)}
 #vs-hint .dice-prob{font-size:9px;color:var(--dim);display:block;margin-top:2px}
 
 /* [UI改] 卡牌 — 多排网格每排5张 */
-.card-hand{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:6px;padding:8px 4px;overflow-y:auto;max-height:260px}
+.card-hand{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:8px;padding:10px 4px;overflow-y:auto;max-height:320px}
 .card-hand::-webkit-scrollbar{width:3px}
 .card-hand::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:2px}
-.card-item{width:calc(20% - 8px);min-width:70px;max-width:100px;flex-shrink:0;border-radius:8px;border:3px solid rgba(255,255,255,.15);
-  padding:5px 5px;cursor:pointer;background:linear-gradient(180deg,rgba(26,26,46,.95) 0%,rgba(13,13,26,.98) 100%);
-  position:relative;transition:all .2s;font-size:10px;box-shadow:0 4px 14px rgba(0,0,0,.5);}
-.card-item:hover:not(.off){transform:translateY(-8px);z-index:10;
+.card-item{width:calc(20% - 8px);min-width:85px;max-width:130px;flex-shrink:0;border-radius:10px;border:3px solid rgba(255,255,255,.15);
+  padding:8px 6px;cursor:pointer;background:linear-gradient(180deg,rgba(26,26,46,.95) 0%,rgba(13,13,26,.98) 100%);
+  position:relative;transition:all .2s;font-size:11px;box-shadow:0 4px 14px rgba(0,0,0,.5);}
+.card-item:hover:not(.off){transform:translateY(-10px);z-index:10;
   box-shadow:0 12px 28px rgba(240,192,64,.25);border-color:rgba(240,192,64,.6)!important}
 .card-item.off{opacity:.35;cursor:not-allowed;filter:grayscale(.8);border-style:dashed}
-.card-item .cost{position:absolute;top:-7px;right:-5px;width:22px;height:22px;border-radius:50%;
-  background:linear-gradient(180deg,#ffd700 0%,#e0a020 100%);color:#1a1a2e;font-size:11px;font-weight:900;
+.card-item .cost{position:absolute;top:-8px;right:-6px;width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(180deg,#ffd700 0%,#e0a020 100%);color:#1a1a2e;font-size:13px;font-weight:900;
   display:flex;align-items:center;justify-content:center;z-index:2;border:2px solid #8b6914;box-shadow:0 2px 6px rgba(0,0,0,.4)}
-.card-item .cname{font-weight:900;line-height:1.2;font-size:12px;text-shadow:0 0 4px currentColor}
-.card-item .cinfo{font-size:9px;color:var(--dim);line-height:1.15;font-weight:700}
+.card-item .cname{font-weight:900;line-height:1.2;font-size:13px;text-shadow:0 0 4px currentColor}
+.card-item .cinfo{font-size:10px;color:var(--dim);line-height:1.2;font-weight:700}
 /* [UI改] 卡牌缩略图 — 等比例不拉伸 */
-.card-thumb{width:100%;height:68px;border-radius:4px;overflow:hidden;margin-bottom:3px;
+.card-thumb{width:100%;height:90px;border-radius:5px;overflow:hidden;margin-bottom:4px;
   display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%)}
 .card-thumb img{width:100%;height:100%;object-fit:contain!important}
 
@@ -220,6 +224,11 @@ input:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(240,192,64,.2)}
 /* [UI改] 骰子摇出后额外晃动 */
 @keyframes diceShake{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
 .dice-shake{animation:diceShake .3s ease-out}
+/* [新增] 骰子弹窗己方/敌方配色 */
+.dice-modal-self{border-color:rgba(240,192,64,.5)!important;box-shadow:0 0 40px rgba(240,192,64,.25)!important}
+.dice-modal-self .dice-cube .dface{background:linear-gradient(135deg,#fff 0%,#ffeaa7 50%,#f0c040 100%)!important;border-color:#c89220;color:#5a4200}
+.dice-modal-enemy{border-color:rgba(231,76,60,.5)!important;box-shadow:0 0 40px rgba(231,76,60,.25)!important}
+.dice-modal-enemy .dice-cube .dface{background:linear-gradient(135deg,#fff 0%,#f5b7b1 50%,#e74c3c 100%)!important;border-color:#a8231a;color:#4a0000}
 .dface{position:absolute;inset:0;border-radius:12px;background:linear-gradient(135deg,#fff 0%,#e8e8e8 50%,#ccc 100%);
   display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:900;color:#1a1a2e;border:3px solid #bbb;backface-visibility:hidden;
   box-shadow:inset 0 2px 4px rgba(255,255,255,.5),inset 0 -2px 4px rgba(0,0,0,.1)}
@@ -282,9 +291,188 @@ input:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(240,192,64,.2)}
 
 @media(min-width:600px){
   .pick-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
-  .card-item{min-width:80px;max-width:110px}
+  .card-item{min-width:85px;max-width:130px}
   .battle-panel .monster-avatar{width:60px;height:60px}
   #battle-page{padding:8px}
+}
+
+/* ============================================================
+   [UI大改] 魔弹图鉴 + 卡牌效果目录 — 二次元动漫风双栏布局
+   零战斗数值改动，数据100%互通
+   ============================================================ */
+
+/* --- 目录页面容器 --- */
+#catalog-page{flex-direction:row;flex-wrap:wrap;gap:10px;padding:10px;height:100vh;align-items:stretch;max-height:100vh;overflow:hidden}
+#catalog-page.active{display:flex}
+#app:has(#catalog-page.active){max-width:1280px}
+
+/* --- 单栏面板 --- */
+.cat-panel{flex:1;min-width:0;display:flex;flex-direction:column;min-height:0;
+  background:linear-gradient(180deg,rgba(22,21,48,.96) 0%,rgba(13,13,26,.99) 100%);
+  border:2px solid rgba(240,192,64,.12);border-radius:16px;overflow:hidden;
+  box-shadow:0 4px 24px rgba(0,0,0,.4);transition:all .3s;}
+.cat-panel:hover{border-color:rgba(240,192,64,.2)}
+
+/* --- 面板标题栏 --- */
+.cat-panel-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;flex-shrink:0;
+  background:linear-gradient(180deg,rgba(240,192,64,.1) 0%,rgba(240,192,64,.02) 100%);
+  border-bottom:1px solid rgba(240,192,64,.1);cursor:pointer;user-select:none;transition:all .2s}
+.cat-panel-header:hover{background:linear-gradient(180deg,rgba(240,192,64,.15) 0%,rgba(240,192,64,.04) 100%)}
+.cat-panel-header h2{font-size:15px;color:var(--gold);text-shadow:0 0 8px rgba(240,192,64,.3);margin:0;letter-spacing:.5px}
+.cat-collapse-icon{font-size:12px;color:var(--gold);transition:transform .3s}
+.cat-panel.collapsed .cat-collapse-icon{transform:rotate(-90deg)}
+.cat-panel.collapsed .cat-panel-body{display:none}
+
+/* --- 面板内容区(可滚动容器) --- */
+.cat-panel-body{flex:1;min-height:0;display:flex;flex-direction:column;overflow:visible}
+
+/* --- 筛选栏 --- */
+.cat-filter-bar{padding:8px 12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,.04);min-height:0}
+.cat-filter-bar .cat-search{flex:1 1 140px;min-width:100px;padding:6px 10px;font-size:11px;
+  border-radius:8px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);color:var(--txt)}
+.cat-filter-bar .cat-search:focus{border-color:var(--gold);box-shadow:0 0 8px rgba(240,192,64,.15)}
+
+/* --- 属性/分类标签 --- */
+.cat-tag{padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;
+  border:2px solid rgba(255,255,255,.12);cursor:pointer;background:rgba(0,0,0,.25);
+  color:var(--dim);transition:all .2s;white-space:nowrap}
+.cat-tag:hover{border-color:rgba(255,255,255,.3);color:var(--txt)}
+.cat-tag.active{color:var(--gold);border-color:var(--gold);background:rgba(240,192,64,.15);
+  box-shadow:0 0 10px rgba(240,192,64,.2)}
+.cat-tag.fav.active{color:#ff6b8a;border-color:#ff6b8a;background:rgba(255,107,138,.12);box-shadow:0 0 10px rgba(255,107,138,.2)}
+
+/* --- 卡片网格 --- */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:700px;
+  padding:10px;overflow-y:auto;flex:1 1 auto;min-height:200px;max-height:calc(100vh - 220px);align-content:flex-start;
+  -webkit-overflow-scrolling:touch}
+.cat-grid::-webkit-scrollbar{width:4px}
+.cat-grid::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:2px}
+.cat-grid::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}
+
+/* --- 分页控制 --- */
+.cat-pagination{display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:10px 14px;flex-shrink:0;
+  border-top:1px solid rgba(255,255,255,.06);
+  background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.05) 100%)}
+.cat-page-btn{padding:7px 18px;font-size:12px;font-weight:700;border-radius:10px;
+  border:2px solid rgba(240,192,64,.2);cursor:pointer;
+  background:linear-gradient(180deg,rgba(255,255,255,.08) 0%,rgba(0,0,0,.3) 100%);
+  color:var(--gold);transition:all .2s;letter-spacing:.3px}
+.cat-page-btn:hover:not(:disabled){border-color:var(--gold);
+  box-shadow:0 0 12px rgba(240,192,64,.25);transform:translateY(-1px)}
+.cat-page-btn:active:not(:disabled){transform:scale(.95)}
+.cat-page-info{font-size:12px;color:var(--dim);min-width:60px;text-align:center;font-weight:700}
+
+/* --- 魔弹/卡牌卡片 --- */
+.cat-mcard{position:relative;border-radius:12px;border:2px solid rgba(255,255,255,.08);
+  background:linear-gradient(180deg,rgba(255,255,255,.025) 0%,rgba(0,0,0,.25) 100%);
+  padding:8px 6px;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  height:100%;min-height:0;justify-content:flex-start}
+.cat-mcard .cat-mcard-body{flex:1;display:flex;flex-direction:column;align-items:center;width:100%}
+.cat-mcard:hover{transform:translateY(-6px);z-index:5;
+  box-shadow:0 10px 30px rgba(0,0,0,.6);border-color:rgba(240,192,64,.4)}
+/* 六属性 hover 微光描边 */
+.cat-mcard.bd-f:hover{border-color:var(--fire);box-shadow:0 0 22px rgba(231,76,60,.25),0 8px 24px rgba(0,0,0,.5)}
+.cat-mcard.bd-w:hover{border-color:var(--water);box-shadow:0 0 22px rgba(46,134,193,.25),0 8px 24px rgba(0,0,0,.5)}
+.cat-mcard.bd-n:hover{border-color:var(--wind);box-shadow:0 0 22px rgba(39,174,96,.25),0 8px 24px rgba(0,0,0,.5)}
+.cat-mcard.bd-e:hover{border-color:var(--earth);box-shadow:0 0 22px rgba(192,133,46,.25),0 8px 24px rgba(0,0,0,.5)}
+.cat-mcard.bd-l:hover{border-color:var(--light);box-shadow:0 0 22px rgba(241,196,15,.25),0 8px 24px rgba(0,0,0,.5)}
+.cat-mcard.bd-d:hover{border-color:var(--dark);box-shadow:0 0 22px rgba(125,60,152,.25),0 8px 24px rgba(0,0,0,.5)}
+
+/* 魔弹卡片缩略图 */
+.cat-mimg{width:100%;height:90px;border-radius:8px;overflow:hidden;margin-bottom:4px;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);
+  border:1px solid rgba(255,255,255,.06)}
+.cat-mimg .mimg{object-fit:contain!important;width:100%;height:100%}
+.cat-mname{font-size:13px;font-weight:900;line-height:1.2;margin-bottom:2px}
+.cat-minfo{font-size:10px;color:var(--dim);line-height:1.3}
+.cat-mstage{padding:1px 8px;border-radius:8px;font-size:8px;font-weight:700;margin-top:3px}
+.stg-base{background:rgba(46,204,113,.15);color:#2ecc71;border:1px solid rgba(46,204,113,.25)}
+.stg-awaken{background:rgba(240,192,64,.15);color:var(--gold);border:1px solid rgba(240,192,64,.25)}
+.stg-special{background:rgba(155,89,182,.15);color:#c39bd3;border:1px solid rgba(155,89,182,.25)}
+
+/* 收藏按钮 */
+.cat-fav{position:absolute;top:6px;right:6px;width:24px;height:24px;border-radius:50%;
+  background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.15);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:12px;
+  transition:all .2s;z-index:2}
+.cat-fav:hover{transform:scale(1.2)}
+.cat-fav.faved{color:#ff6b8a;border-color:#ff6b8a;box-shadow:0 0 8px rgba(255,107,138,.3);background:rgba(255,107,138,.1)}
+
+/* --- 悬浮详情弹窗 --- */
+.cat-popup{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);z-index:30;
+  width:220px;background:linear-gradient(180deg,rgba(22,21,48,.99) 0%,rgba(13,13,26,.99) 100%);
+  border:2px solid var(--gold);border-radius:14px;padding:12px;
+  box-shadow:0 12px 40px rgba(0,0,0,.8),0 0 20px rgba(240,192,64,.1);
+  pointer-events:none;animation:popupIn .2s ease-out}
+@keyframes popupIn{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.cat-popup::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:8px solid transparent;border-top-color:var(--gold)}
+.cat-popup-title{font-size:13px;font-weight:900;color:var(--gold);text-align:center;margin-bottom:6px}
+.cat-popup-row{display:flex;justify-content:space-between;font-size:10px;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.cat-popup-row .lbl{color:var(--dim)}.cat-popup-row .val{font-weight:700}
+
+/* --- 卡牌分类树 --- */
+.cat-tree{display:flex;flex-wrap:wrap;gap:4px;padding:6px 12px;flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,.04)}
+.cat-tree-item{padding:4px 10px;border-radius:6px;font-size:10px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.1);background:rgba(0,0,0,.2);color:var(--dim);
+  transition:all .2s;white-space:nowrap;font-weight:700}
+.cat-tree-item:hover{border-color:rgba(255,255,255,.3);color:var(--txt)}
+.cat-tree-item.active{background:rgba(240,192,64,.15);border-color:var(--gold);color:var(--gold);
+  box-shadow:0 0 10px rgba(240,192,64,.15)}
+
+/* --- 魔弹标签（卡牌卡片内） --- */
+.cat-link-tag{display:inline-block;padding:1px 7px;border-radius:8px;font-size:8px;font-weight:700;
+  border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .15s;margin:1px}
+.cat-link-tag:hover{border-color:var(--gold);color:var(--gold);box-shadow:0 0 6px rgba(240,192,64,.2)}
+
+/* --- 详情弹窗 --- */
+.cat-detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;
+  display:flex;justify-content:center;align-items:center;animation:fadeIn .2s}
+.cat-detail-modal{background:linear-gradient(180deg,rgba(22,21,48,.99) 0%,rgba(13,13,26,.99) 100%);
+  border:2px solid var(--gold);border-radius:18px;padding:24px;width:92%;max-width:500px;
+  max-height:85vh;overflow-y:auto;box-shadow:0 0 60px rgba(240,192,64,.15)}
+.cat-detail-modal h2{font-size:22px;margin-bottom:8px;text-align:center}
+.cat-detail-hero{width:120px;height:150px;margin:12px auto;border-radius:14px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);
+  border:2px solid rgba(255,255,255,.1)}
+.cat-detail-hero .mimg{object-fit:contain!important}
+.cat-detail-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:12px 0}
+.cat-detail-stat{background:rgba(0,0,0,.3);border-radius:8px;padding:8px;text-align:center}
+.cat-detail-stat .sval{font-size:20px;font-weight:900}
+.cat-detail-stat .slbl{font-size:9px;color:var(--dim);margin-top:2px}
+.cat-detail-section{margin-top:12px;text-align:left}
+.cat-detail-section h3{font-size:12px;color:var(--gold);margin-bottom:4px;text-shadow:0 0 6px rgba(240,192,64,.2)}
+.cat-detail-section p{font-size:10px;color:var(--dim);line-height:1.5}
+
+/* --- 快捷按钮 --- */
+.cat-quick-btn{position:fixed;bottom:20px;right:20px;z-index:50;
+  background:linear-gradient(180deg,#ffd700 0%,#e0a020 50%,#b8860b 100%)!important;
+  color:#1a1a2e!important;padding:12px 22px!important;font-size:14px!important;
+  border:2px solid #c89220!important;border-radius:24px!important;
+  box-shadow:0 4px 0 #8b6914,0 8px 24px rgba(240,192,64,.35)!important;
+  animation:quickBtnPulse 2s infinite}
+@keyframes quickBtnPulse{0%,100%{box-shadow:0 4px 0 #8b6914,0 8px 24px rgba(240,192,64,.35)}50%{box-shadow:0 4px 0 #8b6914,0 8px 36px rgba(240,192,64,.6)}}
+
+/* --- 移动端适配 --- */
+@media(max-width:768px){
+  #catalog-page{flex-direction:column;padding:6px;height:auto;min-height:100vh;overflow:visible;max-height:none}
+  #app:has(#catalog-page.active){max-width:100%}
+  .cat-panel{flex:none;max-height:60vh;min-height:300px}
+  .cat-grid{grid-template-columns:repeat(4,1fr);max-width:100%;gap:5px;padding:5px;max-height:calc(60vh - 120px)}
+  .cat-mcard{padding:8px 6px}
+  .cat-mimg{width:100%;height:75px}
+  .cat-mname{font-size:11px}
+  .cat-detail-modal{max-width:95%;padding:16px}
+  .cat-page-btn{padding:6px 14px;font-size:11px}
+}
+@media(min-width:769px){
+  #catalog-page{max-width:1280px;margin:0 auto}
 }
 </style>
 </head>
@@ -324,6 +512,7 @@ input:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(240,192,64,.2)}
       <div class="lobby-btns">
         <button class="btn-p" id="btn-pve">🤖 单人AI对战</button>
         <button class="btn-p" id="btn-pvp" style="background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff">⚔️ 双人PVP对战</button>
+        <button class="btn-s" id="btn-catalog" style="background:linear-gradient(180deg,rgba(155,89,182,.25) 0%,rgba(125,60,152,.15) 100%);border-color:rgba(155,89,182,.35);color:#c39bd3;font-size:14px;padding:10px 20px">📖 魔弹图鉴</button>
         <button class="btn-s btn-sm" id="btn-logout">退出登录</button>
       </div>
     </div>
@@ -360,6 +549,16 @@ input:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(240,192,64,.2)}
     <!-- VS 提示 -->
     <div class="vs-area"><span id="vs-hint">等待编队…</span></div>
 
+    <!-- [新增] 敌方资源可视化面板 -->
+    <div id="enemy-panel" style="display:flex;justify-content:center;align-items:center;gap:14px;padding:5px 10px;
+      background:linear-gradient(180deg,rgba(180,30,30,.12) 0%,rgba(0,0,0,.35) 100%);
+      border:1px solid rgba(231,76,60,.2);border-radius:4px;margin:2px 0;font-size:11px">
+      <span>⚔️<b id="ep-name" style="color:#ff6b6b">—</b> ATK<b id="ep-atk">0</b></span>
+      <span>⚡魔能 <b id="ep-energy" style="color:var(--gold)">0</b></span>
+      <span>🛡护盾 <b id="ep-shield" style="color:#5dade2">0</b></span>
+      <span id="ep-debuffs" style="color:#e67e22;font-size:10px"></span>
+    </div>
+
     <!-- [UI改] 中央主战魔弹大图 -->
     <div class="center-monster" id="center-mon"></div>
 
@@ -380,9 +579,49 @@ input:focus{border-color:var(--gold);box-shadow:0 0 12px rgba(240,192,64,.2)}
     <!-- [UI改] 底部扇形手牌 -->
     <div class="card-hand" id="cards-p1"></div>
 
+    <!-- 选中卡牌预览面板 -->
+    <div id="card-preview" style="display:none;padding:8px 12px;background:rgba(22,21,48,.95);border:2px solid var(--gold);border-radius:12px;margin:4px 0;text-align:center"></div>
+
     <!-- 战斗日志 -->
     <div id="battle-log"></div>
   </div>
+
+  <!-- ============================================================
+       魔弹图鉴 + 卡牌效果目录页
+       ============================================================ -->
+  <div class="page" id="catalog-page">
+    <!-- ========== 左侧：魔弹图鉴 ========== -->
+    <div class="cat-panel" id="panel-monsters">
+      <div class="cat-panel-header" onclick="toggleCatPanel('monsters')">
+        <h2>⚡ 魔弹图鉴</h2>
+        <span class="cat-collapse-icon">▼</span>
+      </div>
+      <div class="cat-panel-body">
+        <div class="cat-filter-bar" id="mon-filter"></div>
+        <div class="cat-grid" id="mon-grid"></div>
+        <div class="cat-pagination" id="mon-pagination" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- ========== 右侧：卡牌效果目录 ========== -->
+    <div class="cat-panel" id="panel-cards">
+      <div class="cat-panel-header" onclick="toggleCatPanel('cards')">
+        <h2>🃏 卡牌效果目录</h2>
+        <span class="cat-collapse-icon">▼</span>
+      </div>
+      <div class="cat-panel-body">
+        <div class="cat-filter-bar" id="card-filter"></div>
+        <div class="cat-tree" id="card-categories"></div>
+        <div class="cat-grid" id="card-grid"></div>
+        <div class="cat-pagination" id="card-pagination" style="display:none"></div>
+      </div>
+    </div>
+<div style="flex-basis:100%;width:100%;text-align:center;font-size:10px;color:var(--dim);padding:4px 0;opacity:.4" id="catalog-ai-notice">图片均由AI生成</div>
+  </div>
+
+  <!-- 快捷按钮（仅在目录页显示） -->
+  <button class="cat-quick-btn" id="btn-catalog-battle" style="display:none">⚔️ 前往对战试用</button>
+  <button class="btn-s" id="btn-catalog-back" style="display:none;position:fixed;top:16px;right:20px;z-index:50;padding:8px 16px;font-size:12px" onclick="goLobby()">↩ 返回大厅</button>
 </div>
 
 <!-- 弹窗容器 -->
@@ -431,6 +670,47 @@ const MONSTERS=[
   {id:'xuanlingfenghuang',nm:'玄翎凤凰',stg:'基础',lk:null,el:EL.WIND,atk:320,ult:{nm:'翎羽飓火',dmg:470,el:EL.WIND},pas:{t:'windCostDown',v:1},excl:['xuanlingfengbao','jufengjiaozhi','fengnengjiqu','lingyumihuo']},
   // ===== 特殊 =====
   {id:'jiamianshengluo',nm:'假面圣罗',stg:'特殊',lk:null,el:null,atk:400,ult:null,pas:{t:'multiDomain',atkBonus:120,costM1:true},excl:['shuxingnizhuan','wanxiangxishou','yuansupingzhang'],costM1:true,atkBonus:120},
+  // ============ [新增] 图鉴魔弹加入对战数据库 ============
+  // 火系新增
+  {id:'chiyanliehuang',nm:'赤焰烈凰',stg:'基础',lk:'未知',el:EL.FIRE,atk:310,ult:{nm:'涅槃烈焰',dmg:470,el:EL.FIRE},pas:null,excl:['1045','1046']},
+  {id:'lieyanxiongshi',nm:'烈焰雄狮',stg:'基础',lk:'未知',el:EL.FIRE,atk:300,ult:{nm:'狮王咆哮',dmg:430,el:EL.FIRE},pas:null,excl:[]},
+  {id:'ronghuojuxi',nm:'熔火巨蜥',stg:'基础',lk:'未知',el:EL.FIRE,atk:290,ult:{nm:'熔岩喷射',dmg:410,el:EL.FIRE},pas:null,excl:['1047','1048']},
+  {id:'yanmolingzhu',nm:'炎魔领主',stg:'觉醒',lk:'未知',el:EL.FIRE,atk:440,ult:{nm:'地狱烈焰',dmg:600,el:EL.FIRE},pas:{t:'fireDmgBonus',v:150},excl:['1049','1050']},
+  {id:'fentianhuolong',nm:'焚天火龙',stg:'觉醒',lk:'未知',el:EL.FIRE,atk:450,ult:{nm:'焚天烈焰',dmg:680,el:EL.FIRE},pas:null,excl:['1051','1052']},
+  {id:'jinhuohu',nm:'烬火狐',stg:'基础',lk:'未知',el:EL.FIRE,atk:280,ult:{nm:'余烬之舞',dmg:380,el:EL.FIRE},pas:{t:'dot',v:60,dur:2},excl:['1053','1054']},
+  // 水系新增
+  {id:'binglinhaishou',nm:'冰麟海兽',stg:'基础',lk:'未知',el:EL.WATER,atk:300,ult:{nm:'深海寒流',dmg:420,el:EL.WATER},pas:null,excl:[]},
+  {id:'canglanjiaolong',nm:'沧澜蛟龙',stg:'觉醒',lk:'未知',el:EL.WATER,atk:420,ult:{nm:'沧海怒涛',dmg:580,el:EL.WATER},pas:null,excl:['1055','1056']},
+  {id:'bingjingxuanguei',nm:'冰晶玄龟',stg:'基础',lk:'未知',el:EL.WATER,atk:260,ult:{nm:'永冻结界',dmg:350,el:EL.WATER},pas:{t:'reactShield',ch:.35,v:200},excl:['1057','1058']},
+  {id:'chaoxirenyu',nm:'潮汐人鱼',stg:'基础',lk:'未知',el:EL.WATER,atk:290,ult:{nm:'海之旋律',dmg:400,el:EL.WATER},pas:{t:'healTurn',v:120},excl:['1059','1060']},
+  {id:'hanshuanglinge',nm:'寒霜灵鳄',stg:'基础',lk:'未知',el:EL.WATER,atk:310,ult:{nm:'冰河猎杀',dmg:440,el:EL.WATER},pas:null,excl:['1061','1062']},
+  {id:'shenyuanshuilong',nm:'深渊水龙',stg:'觉醒',lk:'未知',el:EL.WATER,atk:440,ult:{nm:'深渊吞噬',dmg:620,el:EL.WATER},pas:null,excl:['1063','1064']},
+  // 风系新增
+  {id:'jifengshenying',nm:'疾风神鹰',stg:'基础',lk:'未知',el:EL.WIND,atk:310,ult:{nm:'苍穹俯冲',dmg:440,el:EL.WIND},pas:null,excl:['1065','1066']},
+  {id:'xuanfengleisun',nm:'旋风雷隼',stg:'基础',lk:'未知',el:EL.WIND,atk:320,ult:{nm:'雷霆俯冲',dmg:450,el:EL.WIND},pas:null,excl:['1067','1068']},
+  {id:'yunyitianma',nm:'云翼天马',stg:'基础',lk:'未知',el:EL.WIND,atk:290,ult:{nm:'天马行空',dmg:420,el:EL.WIND},pas:{t:'windCostDown',v:1},excl:['1069','1070']},
+  {id:'baofenglinghu',nm:'暴风灵狐',stg:'基础',lk:'未知',el:EL.WIND,atk:280,ult:{nm:'暴风之舞',dmg:400,el:EL.WIND},pas:null,excl:['1071','1072']},
+  {id:'liuyunfeiyuan',nm:'流云飞鸢',stg:'基础',lk:'未知',el:EL.WIND,atk:300,ult:{nm:'苍穹之舞',dmg:430,el:EL.WIND},pas:null,excl:['1073','1074']},
+  {id:'leitingfenglang',nm:'雷霆风狼',stg:'觉醒',lk:'未知',el:EL.WIND,atk:410,ult:{nm:'风暴猎杀',dmg:560,el:EL.WIND},pas:null,excl:['1075','1076']},
+  // 土系新增
+  {id:'changweiyinhu',nm:'长尾银狐',stg:'基础',lk:'未知',el:EL.EARTH,atk:290,ult:{nm:'狡黠之影',dmg:410,el:EL.EARTH},pas:null,excl:['1077','1078']},
+  {id:'zhuangjiayangui',nm:'装甲岩龟',stg:'基础',lk:'未知',el:EL.EARTH,atk:270,ult:{nm:'山岳守护',dmg:380,el:EL.EARTH},pas:{t:'reactShield',ch:.4,v:250},excl:['1079','1080']},
+  {id:'yanjiajuxiong',nm:'岩甲巨熊',stg:'觉醒',lk:'未知',el:EL.EARTH,atk:430,ult:{nm:'山岳之怒',dmg:570,el:EL.EARTH},pas:null,excl:[]},
+  {id:'shanyueshixi',nm:'山岳石犀',stg:'觉醒',lk:'未知',el:EL.EARTH,atk:420,ult:{nm:'大地冲锋',dmg:550,el:EL.EARTH},pas:null,excl:[]},
+  // 光系新增
+  {id:'shengguangqilin',nm:'圣光麒麟',stg:'觉醒',lk:'未知',el:EL.LIGHT,atk:430,ult:{nm:'神圣制裁',dmg:560,el:EL.LIGHT},pas:{t:'healTurn',v:180},excl:['1081','1082']},
+  {id:'tianyaoshenlong',nm:'天耀神龙',stg:'觉醒',lk:'未知',el:EL.LIGHT,atk:450,ult:{nm:'苍穹之光',dmg:600,el:EL.LIGHT},pas:null,excl:['1083','1084']},
+  {id:'huiguangtianshi',nm:'辉光天使',stg:'基础',lk:'未知',el:EL.LIGHT,atk:320,ult:{nm:'光明之翼',dmg:480,el:EL.LIGHT},pas:{t:'healTurn',v:130},excl:['1085','1086']},
+  {id:'xingchenbailu',nm:'星辰白鹿',stg:'基础',lk:'未知',el:EL.LIGHT,atk:300,ult:{nm:'星之引导',dmg:440,el:EL.LIGHT},pas:null,excl:['1087','1088']},
+  {id:'yaojingshijiu',nm:'耀晶狮鹫',stg:'觉醒',lk:'未知',el:EL.LIGHT,atk:420,ult:{nm:'光之审判',dmg:550,el:EL.LIGHT},pas:null,excl:['1089','1090']},
+  {id:'xiguanglinglu',nm:'曦光灵鹿',stg:'基础',lk:'未知',el:EL.LIGHT,atk:290,ult:{nm:'晨光祝福',dmg:420,el:EL.LIGHT},pas:{t:'healTurn',v:100},excl:['1091','1092']},
+  // 暗系新增
+  {id:'anheimolong',nm:'暗黑魔龙',stg:'觉醒',lk:'未知',el:EL.DARK,atk:450,ult:{nm:'虚无之翼',dmg:620,el:EL.DARK},pas:null,excl:['1093','1094']},
+  {id:'xieyingxiuluo',nm:'邪影修罗',stg:'觉醒',lk:'未知',el:EL.DARK,atk:440,ult:{nm:'影之支配',dmg:580,el:EL.DARK},pas:null,excl:['1095','1096']},
+  {id:'anyingmofu',nm:'暗影魔蝠',stg:'基础',lk:'未知',el:EL.DARK,atk:290,ult:{nm:'夜幕猎杀',dmg:420,el:EL.DARK},pas:{t:'dot',v:50,perm:true},excl:[]},
+  {id:'shihunyelang',nm:'噬魂夜狼',stg:'基础',lk:'未知',el:EL.DARK,atk:310,ult:{nm:'月下狂啸',dmg:450,el:EL.DARK},pas:null,excl:[]},
+  {id:'youmingmolong',nm:'幽冥魔龙',stg:'觉醒',lk:'未知',el:EL.DARK,atk:460,ult:{nm:'冥界之门',dmg:650,el:EL.DARK},pas:null,excl:['1097','1098']},
+  {id:'shenyuanmozhu',nm:'深渊魔主',stg:'特殊',lk:'未知',el:EL.DARK,atk:480,ult:{nm:'万魔之怒',dmg:700,el:EL.DARK},pas:{t:'multiDomain',atkBonus:150,costM1:true},excl:['1099','1100'],costM1:true,atkBonus:150},
 ];
 
 /* ============================================================
@@ -445,78 +725,129 @@ const EL_HEX={fire:'e74c3c',light:'f1c40f',earth:'c0852e',dark:'7d3c98',water:'2
 const EL_HEX_DARK={fire:'fff',light:'333',earth:'fff',dark:'fff',water:'fff',wind:'333',none:'fff'};
 
 /* 生成魔弹SVG — 动画风格角色卡(内嵌零网络依赖) */
+/* [UI大改] 增强版魔弹SVG — 动漫风格角色卡，二级光效+属性装饰 */
 function buildMonSVG(mid){
   const m=getMon(mid);if(!m)return'';
   const el=m.el||'none';const bg=EL_HEX[el]||'888';const fg=EL_HEX_DARK[el]||'fff';
-  const icon=m.el?EL_ICON[m.el]:'🎭';const nm=m.nm;
-  const svg='<svg xmlns="http://www.w3.org/2000/svg" width="200" height="260" viewBox="0 0 200 260">'
-    +'<defs><radialGradient id="g2" cx="50%" cy="35%"><stop offset="0%" stop-color="#fff" stop-opacity=".3"/><stop offset="100%" stop-color="#000" stop-opacity=".25"/></radialGradient>'
-    +'<linearGradient id="bar2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#'+bg+'"/><stop offset="100%" stop-color="#000" stop-opacity=".5"/></linearGradient></defs>'
-    +'<rect width="200" height="260" rx="14" fill="#1a1a2e" stroke="#'+bg+'" stroke-width="3"/>'
-    +'<rect width="200" height="180" rx="14" fill="#'+bg+'"/>'
-    +'<rect width="200" height="14" y="166" fill="#'+bg+'"/>'
-    +'<rect width="200" height="180" rx="14" fill="url(#g2)"/>'
-    +'<circle cx="100" cy="80" r="50" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.35)" stroke-width="2"/>'
-    +'<text x="100" y="98" text-anchor="middle" font-size="52" fill="#'+fg+'">'+icon+'</text>'
-    +'<rect x="10" y="186" width="180" height="64" rx="6" fill="rgba(0,0,0,.3)"/>'
-    +'<text x="100" y="210" text-anchor="middle" font-size="20" font-weight="900" fill="#'+fg+'" font-family="PingFang SC,Microsoft YaHei,sans-serif">'+nm+'</text>'
-    +'<text x="100" y="236" text-anchor="middle" font-size="13" fill="rgba(255,255,255,.7)">'+(m.el?EL_NAME[m.el]+'系':'全属性')+' · ATK'+m.atk+' · '+m.stg+'</text>'
+  const icon=m.el?EL_ICON[m.el]:'🎭';const nm=m.nm;const en=m.el?EL_NAME[m.el]:'全';
+  // 属性亮色
+  const elLight={fire:'ff6b6b',light:'ffe066',earth:'e6b85c',dark:'c39bd3',water:'5dade2',wind:'58d68d',none:'aaa'};
+  const lt=elLight[el]||'aaa';
+  // 三级渐变ID避免同一页面多卡冲突
+  const uid='m'+mid.replace(/[^a-z0-9]/g,'');
+  const svg='<svg xmlns="http://www.w3.org/2000/svg" width="220" height="300" viewBox="0 0 220 300">'
+    // defs
+    +'<defs>'
+    +'<radialGradient id="bg'+uid+'" cx="50%" cy="40%"><stop offset="0%" stop-color="#'+lt+'" stop-opacity=".45"/><stop offset="50%" stop-color="#'+bg+'" stop-opacity=".2"/><stop offset="100%" stop-color="#0a0a14" stop-opacity="1"/></radialGradient>'
+    +'<radialGradient id="core'+uid+'" cx="50%" cy="50%"><stop offset="0%" stop-color="#'+lt+'" stop-opacity=".8"/><stop offset="60%" stop-color="#'+bg+'" stop-opacity=".3"/><stop offset="100%" stop-color="#'+bg+'" stop-opacity="0"/></radialGradient>'
+    +'<linearGradient id="bar'+uid+'" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#'+bg+'" stop-opacity="0"/><stop offset="20%" stop-color="#'+bg+'" stop-opacity=".9"/><stop offset="80%" stop-color="#'+bg+'" stop-opacity=".9"/><stop offset="100%" stop-color="#'+bg+'" stop-opacity="0"/></linearGradient>'
+    +'<linearGradient id="nmG'+uid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#'+lt+'"/><stop offset="100%" stop-color="#'+bg+'"/></linearGradient>'
+    +'<filter id="gf'+uid+'"><feGaussianBlur stdDeviation="3"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
+    +'<filter id="bf'+uid+'"><feGaussianBlur stdDeviation="8"/></filter>'
+    +'</defs>'
+    // 底色+渐变蒙层
+    +'<rect width="220" height="300" rx="14" fill="#0a0a14"/>'
+    +'<rect width="220" height="300" rx="14" fill="url(#bg'+uid+')"/>'
+    // 网格线
+    +'<g opacity=".04">'+Array.from({length:7},(_,i)=>'<line x1="0" y1="'+(i*43)+'" x2="220" y2="'+(i*43)+'" stroke="#'+lt+'" stroke-width=".5"/>').join('')+'</g>'
+    // 外框
+    +'<rect x="2" y="2" width="216" height="296" rx="13" fill="none" stroke="#'+bg+'" stroke-width="2" opacity=".5"/>'
+    +'<rect x="4" y="4" width="212" height="292" rx="12" fill="none" stroke="#'+lt+'" stroke-width=".5" opacity=".15"/>'
+    // 顶部属性色块
+    +'<rect width="220" height="170" rx="14" fill="#'+bg+'" opacity=".08"/>'
+    +'<rect width="220" height="10" y="160" fill="#'+bg+'" opacity=".15"/>'
+    // 光环
+    +'<circle cx="110" cy="80" r="62" fill="none" stroke="#'+bg+'" stroke-width="1.5" opacity=".18"/>'
+    +'<circle cx="110" cy="80" r="52" fill="none" stroke="#'+lt+'" stroke-width="1" opacity=".12" stroke-dasharray="10 6"/>'
+    // 核心光球
+    +'<circle cx="110" cy="80" r="48" fill="url(#core'+uid+')" filter="url(#bf'+uid+')" opacity=".5"/>'
+    +'<circle cx="110" cy="80" r="30" fill="url(#core'+uid+')" opacity=".25"/>'
+    // 元素图标
+    +'<text x="110" y="100" text-anchor="middle" font-size="58" fill="#'+fg+'" filter="url(#gf'+uid+')">'+icon+'</text>'
+    // 能量粒子
+    +'<circle cx="65" cy="55" r="2" fill="#'+lt+'" opacity=".4"/><circle cx="160" cy="70" r="1.5" fill="#'+lt+'" opacity=".3"/><circle cx="90" cy="130" r="1.5" fill="#'+lt+'" opacity=".25"/><circle cx="140" cy="120" r="2" fill="#'+lt+'" opacity=".35"/><circle cx="50" cy="100" r="1" fill="#'+lt+'" opacity=".2"/><circle cx="175" cy="95" r="1.5" fill="#'+lt+'" opacity=".25"/>'
+    // 属性角标
+    +'<rect x="8" y="8" width="36" height="18" rx="9" fill="rgba(0,0,0,.6)" stroke="#'+bg+'" stroke-width="1.5"/>'
+    +'<text x="26" y="21" text-anchor="middle" font-size="10" font-weight="900" fill="#'+lt+'">'+en+'</text>'
+    // 底部信息卡
+    +'<rect x="10" y="190" width="200" height="100" rx="8" fill="rgba(0,0,0,.55)" stroke="#'+bg+'" stroke-width="1" opacity=".6"/>'
+    +'<rect x="10" y="190" width="200" height="3" rx="1.5" fill="url(#bar'+uid+')" opacity=".8"/>'
+    // 魔弹名
+    +'<text x="110" y="222" text-anchor="middle" font-size="22" font-weight="900" fill="url(#nmG'+uid+')" font-family="PingFang SC,Microsoft YaHei,sans-serif" filter="url(#gf'+uid+')">'+nm+'</text>'
+    // ATK
+    +'<text x="110" y="248" text-anchor="middle" font-size="13" fill="rgba(255,255,255,.6)">⚔️ ATK '+m.atk+' · '+m.stg+'</text>'
+    // 属性色条
+    +'<rect x="40" y="260" width="140" height="3" rx="1.5" fill="#'+bg+'" opacity=".4"/>'
+    +'<text x="110" y="278" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.35)">'+(m.el?en+'系':'全属性')+' · '+(m.lk||'独立')+'</text>'
+    // 边框发光
+    +'<rect x="0" y="0" width="220" height="300" rx="14" fill="none" stroke="#'+bg+'" stroke-width="1.5" opacity=".25"/>'
     +'</svg>';
   return 'data:image/svg+xml,'+encodeURIComponent(svg);
 }
 
-/* 生成卡牌SVG面DataURI */
+/* [UI大改] 增强版卡牌SVG — 匹配魔弹风格 */
 function buildCardSVG(cardId){
   const c=getCard(cardId);if(!c)return'';
   const el=c.el||'none';const bg=EL_HEX[el]||'888';const fg=EL_HEX_DARK[el]||'fff';
   const icon=c.el?EL_ICON[c.el]:'🃏';const nm=c.nm;
-  // 类型标签
+  const elLight={fire:'ff6b6b',light:'ffe066',earth:'e6b85c',dark:'c39bd3',water:'5dade2',wind:'58d68d',none:'aaa'};
+  const lt=elLight[el]||'aaa';
   const tpMap={dmg:'⚔️伤害',shield:'🛡护盾',heal:'💚回复',drain:'🩸汲取',buff:'⬆增益',debuff:'⬇减益',negate:'🚫抵消',lock:'🔐封印',clear:'✨净化',dodge:'💨闪避'};
   const tpLabel=tpMap[c.tp]||c.tp;
-  const svg='<svg xmlns="http://www.w3.org/2000/svg" width="180" height="250" viewBox="0 0 180 250">'
-    +'<defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity=".2"/><stop offset="100%" stop-color="#000" stop-opacity=".3"/></linearGradient></defs>'
-    +'<rect width="180" height="250" rx="12" fill="#1a1a2e" stroke="#'+bg+'" stroke-width="3"/>'
-    // 顶部色条
-    +'<rect width="180" height="60" rx="12" fill="#'+bg+'"/>'
-    +'<rect width="180" height="12" y="48" fill="#'+bg+'"/>'
-    +'<rect width="180" height="60" rx="12" fill="url(#cg)"/>'
-    // 消耗圆
-    +'<circle cx="140" cy="30" r="18" fill="#f0c040" stroke="#1a1a2e" stroke-width="2"/>'
-    +'<text x="140" y="36" text-anchor="middle" font-size="18" font-weight="bold" fill="#1a1a2e">'+c.cost+'</text>'
+  const uid='c'+cardId.replace(/[^a-z0-9]/g,'');
+  const svg='<svg xmlns="http://www.w3.org/2000/svg" width="200" height="280" viewBox="0 0 200 280">'
+    +'<defs>'
+    +'<linearGradient id="cg'+uid+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity=".18"/><stop offset="100%" stop-color="#000" stop-opacity=".35"/></linearGradient>'
+    +'<radialGradient id="crg'+uid+'" cx="50%" cy="70%"><stop offset="0%" stop-color="#'+lt+'" stop-opacity=".15"/><stop offset="100%" stop-color="#000" stop-opacity="0"/></radialGradient>'
+    +'<filter id="cgf'+uid+'"><feGaussianBlur stdDeviation="2.5"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
+    +'</defs>'
+    +'<rect width="200" height="280" rx="12" fill="#0a0a14" stroke="#'+bg+'" stroke-width="2.5"/>'
+    +'<rect width="200" height="280" rx="12" fill="url(#crg'+uid+')"/>'
+    // 顶部属性色条
+    +'<rect width="200" height="72" rx="12" fill="#'+bg+'" opacity=".12"/>'
+    +'<rect width="200" height="6" y="66" fill="#'+bg+'" opacity=".2"/>'
+    +'<rect width="200" height="72" rx="12" fill="url(#cg'+uid+')"/>'
+    // 属性图标
+    +'<text x="30" y="44" font-size="32" fill="#'+fg+'" filter="url(#cgf'+uid+')">'+icon+'</text>'
     // 卡名
-    +'<text x="14" y="38" font-size="16" font-weight="bold" fill="#'+fg+'" font-family="PingFang SC,Microsoft YaHei,sans-serif">'+icon+' '+nm+'</text>'
-    // 中间内容区
-    +'<rect x="10" y="72" width="160" height="110" rx="6" fill="rgba(255,255,255,.05)"/>'
-    +'<text x="90" y="98" text-anchor="middle" font-size="12" fill="rgba(255,255,255,.5)">'+tpLabel+'</text>'
-    +((c.dmg||0)>0?'<text x="90" y="140" text-anchor="middle" font-size="42" font-weight="bold" fill="#'+bg+'">'+c.dmg+'</text>':'')
-    +((c.dmg||0)<=0?'<text x="90" y="140" text-anchor="middle" font-size="26" fill="#'+bg+'">'+icon+'</text>':'')
-    // 底部描述
-    +'<text x="90" y="182" text-anchor="middle" font-size="11" fill="rgba(255,255,255,.6)">'+c.desc.slice(0,14)+'</text>'
-    +((c.excl)?'<rect x="30" y="198" width="120" height="20" rx="4" fill="rgba(240,192,64,.2)"/><text x="90" y="213" text-anchor="middle" font-size="10" fill="#f0c040">🔒 专属卡牌</text>':'')
+    +'<text x="28" y="62" font-size="14" font-weight="900" fill="#'+fg+'" font-family="PingFang SC,Microsoft YaHei,sans-serif">'+nm+'</text>'
+    // 消耗圆
+    +'<circle cx="168" cy="36" r="20" fill="#f0c040" stroke="#1a1a2e" stroke-width="2.5"/>'
+    +'<text x="168" y="42" text-anchor="middle" font-size="20" font-weight="900" fill="#1a1a2e">'+c.cost+'</text>'
+    // 类型标签
+    +'<rect x="15" y="86" width="56" height="18" rx="6" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>'
+    +'<text x="43" y="99" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.5)">'+tpLabel+'</text>'
+    // 效果图标区
+    +'<circle cx="100" cy="155" r="48" fill="none" stroke="#'+bg+'" stroke-width="1.5" opacity=".15"/>'
+    +'<circle cx="100" cy="155" r="38" fill="none" stroke="#'+lt+'" stroke-width="1" opacity=".1" stroke-dasharray="8 5"/>'
+    +((c.dmg||0)>0?'<text x="100" y="165" text-anchor="middle" font-size="46" font-weight="900" fill="#'+lt+'" filter="url(#cgf'+uid+')">'+c.dmg+'</text>':'<text x="100" y="165" text-anchor="middle" font-size="36" fill="#'+lt+'">'+icon+'</text>')
+    +'<text x="100" y="185" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.3)">'+(c.dmg>0?'伤害值':'效果卡')+'</text>'
+    // 底部描述区
+    +'<rect x="12" y="205" width="176" height="40" rx="6" fill="rgba(0,0,0,.3)"/>'
+    +'<text x="100" y="222" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.5)">'+c.desc.slice(0,16)+'</text>'
+    +'<text x="100" y="237" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.3)">'+(c.el?EL_NAME[c.el]+'系':'通用')+(c.excl?' · 🔒专属':'')+'</text>'
+    // 专属标记
+    +(c.excl?'<rect x="50" y="252" width="100" height="18" rx="5" fill="rgba(240,192,64,.15)" stroke="rgba(240,192,64,.2)" stroke-width="1"/><text x="100" y="265" text-anchor="middle" font-size="9" fill="#f0c040">🔒 专属卡牌</text>':'')
     +'</svg>';
   return 'data:image/svg+xml,'+encodeURIComponent(svg);
 }
 
-/* MON_IMG表 — 动画原画URL，加载失败自动回退内嵌SVG */
-const IMG_BASE='https://716GW5eWyrl9svU4hDGMqMVLo4bXuCr2kleDVNY103aKhqn0otWA3eo9/';
-const U=id=>IMG_BASE+id+'.png';
-const MON_IMG={
-  baoyanlong:       {url:U('baoyanlong'),       svg:buildMonSVG('baoyanlong')},
-  huoyilongwang:    {url:U('huoyilongwang'),    svg:buildMonSVG('huoyilongwang')},
-  dujiaotianma:     {url:U('dujiaotianma'),     svg:buildMonSVG('dujiaotianma')},
-  shengguangtianma: {url:U('shengguangtianma'), svg:buildMonSVG('shengguangtianma')},
-  chaonengzhanhu:   {url:U('chaonengzhanhu'),   svg:buildMonSVG('chaonengzhanhu')},
-  bajihuanghu:      {url:U('bajihuanghu'),      svg:buildMonSVG('bajihuanghu')},
-  moyanjuxiang:     {url:U('moyanjuxiang'),     svg:buildMonSVG('moyanjuxiang')},
-  shenmoshuangti:   {url:U('shenmoshuangti'),   svg:buildMonSVG('shenmoshuangti')},
-  moyuduxie:        {url:U('moyuduxie'),        svg:buildMonSVG('moyuduxie')},
-  hundreduneling:   {url:U('hundreduneling'),   svg:buildMonSVG('hundreduneling')},
-  jibingtengshe:    {url:U('jibingtengshe'),    svg:buildMonSVG('jibingtengshe')},
-  huanqilin:        {url:U('huanqilin'),        svg:buildMonSVG('huanqilin')},
-  guimianshengjun:  {url:U('guimianshengjun'),  svg:buildMonSVG('guimianshengjun')},
-  xuanlingfenghuang:{url:U('xuanlingfenghuang'),svg:buildMonSVG('xuanlingfenghuang')},
-  jiamianshengluo:  {url:U('jiamianshengluo'),  svg:buildMonSVG('jiamianshengluo')},
-};
+/* MON_IMG表 — 优先本地素材目录JPG，加载失败自动回退内嵌SVG */
+const IMG_BASE='./素材/';
+const U=name=>IMG_BASE+name+'.jpg';
+/* 从MONSTERS数组自动生成全部魔弹图片映射（魔弹名称=素材文件名） */
+function buildMonImgTable(){
+  const tbl={};
+  MONSTERS.forEach(m=>{
+    const name=m.nm;
+    tbl[m.id]={
+      url:U(name),           // 尝试加载 ./素材/魔弹名称.jpg
+      svg:buildMonSVG(m.id), // 失败回退内嵌SVG
+    };
+  });
+  return tbl;
+}
+const MON_IMG=buildMonImgTable();
 /* 卡牌SVG缓存 */
 const CARD_SVGS={};
 function getCardSVG(cid){if(!CARD_SVGS[cid])CARD_SVGS[cid]=buildCardSVG(cid);return CARD_SVGS[cid];}
@@ -679,6 +1010,69 @@ const CARDS=[
   {id:'shuxingnizhuan',nm:'属性逆转',cost:3,el:EL.WIND,tp:'buff',dmg:0,desc:'临时切换自身领域持续完整1回合',excl:'jiamianshengluo',fx:{swapElement:1,dur:1}},
   {id:'wanxiangxishou',nm:'万象吸收',cost:2,el:EL.LIGHT,tp:'buff',dmg:0,desc:'复制敌方本回合一个增益buff给自己',excl:'jiamianshengluo',fx:{copyBuff:1,dur:1}},
   {id:'yuansupingzhang',nm:'元素屏障',cost:3,el:EL.FIRE,tp:'shield',dmg:0,desc:'350盾+免疫克制属性全部伤害',excl:'jiamianshengluo',fx:{shield:350,immuneElement:1,dur:1}},
+  // ============ [新增] 魔弹专属限定卡牌(1045起) ============
+  // --- 火属性专属 ---
+  {id:'1045',nm:'火凰灼烧',cost:2,el:EL.FIRE,tp:'dmg',dmg:260,desc:'260火伤+全体灼烧2回合每回合60',excl:'chiyanliehuang',fx:{aoe:true,dot:60,dur:2}},
+  {id:'1046',nm:'浴火重生',cost:3,el:EL.FIRE,tp:'heal',dmg:0,desc:'恢复220生命+清除自身全部debuff',excl:'chiyanliehuang',fx:{heal:220,clrSelfDeb:1}},
+  {id:'1047',nm:'熔浆腐蚀',cost:2,el:EL.FIRE,tp:'debuff',dmg:0,desc:'敌方护盾每回合损耗100持续2回合',excl:'ronghuojuxi',fx:{shieldDecay:100,dur:2}},
+  {id:'1048',nm:'地壳喷涌',cost:3,el:EL.FIRE,tp:'dmg',dmg:340,desc:'340群体火属性伤害',excl:'ronghuojuxi',fx:{aoe:true}},
+  {id:'1049',nm:'狱火封禁',cost:3,el:EL.FIRE,tp:'debuff',dmg:0,desc:'敌方本回合无法释放消耗4点及以上卡牌',excl:'yanmolingzhu',fx:{costLimit:4,dur:1}},
+  {id:'1050',nm:'炎魔领域',cost:2,el:EL.FIRE,tp:'buff',dmg:0,desc:'全队火系伤害+160持续1回合',excl:'yanmolingzhu',fx:{fireDmgBonus:160,dur:1}},
+  {id:'1051',nm:'焚世龙焰',cost:4,el:EL.FIRE,tp:'dmg',dmg:500,desc:'500单体高额火伤',excl:'fentianhuolong',fx:{}},
+  {id:'1052',nm:'火龙护躯',cost:2,el:EL.FIRE,tp:'shield',dmg:0,desc:'300火盾+受击反弹100火伤',excl:'fentianhuolong',fx:{shield:300,rebound:100}},
+  {id:'1053',nm:'星火燎原',cost:2,el:EL.FIRE,tp:'dmg',dmg:240,desc:'240群体火伤+每层星火追加80',excl:'jinhuohu',fx:{aoe:true}},
+  {id:'1054',nm:'余烬封锁',cost:3,el:EL.FIRE,tp:'debuff',dmg:0,desc:'敌方下回合骰子点数上限锁定5点',excl:'jinhuohu',fx:{diceMax:5,dur:1}},
+  // --- 水属性专属 ---
+  {id:'1055',nm:'沧澜吞噬',cost:3,el:EL.WATER,tp:'dmg',dmg:360,desc:'360水伤+20%转自身护盾',excl:'canglanjiaolong',fx:{lifeSteal:20}},
+  {id:'1056',nm:'潮涌禁锢',cost:2,el:EL.WATER,tp:'debuff',dmg:0,desc:'敌方水系卡牌消耗+2持续1回合',excl:'canglanjiaolong',fx:{costUpAll:2,dur:1}},
+  {id:'1057',nm:'永冻龟甲',cost:2,el:EL.WATER,tp:'shield',dmg:0,desc:'320冰盾+免疫灼烧debuff',excl:'bingjingxuanguei',fx:{shield:320,immuneDot:1,dur:1}},
+  {id:'1058',nm:'寒冰囚笼',cost:3,el:EL.WATER,tp:'debuff',dmg:0,desc:'敌方下回合无法切换主战魔弹',excl:'bingjingxuanguei',fx:{switchBlock:1,dur:1}},
+  {id:'1059',nm:'治愈潮声',cost:2,el:EL.WATER,tp:'heal',dmg:0,desc:'全队回160血+100共享灵能',excl:'chaoxirenyu',fx:{heal:160,healSpirit:100}},
+  {id:'1060',nm:'海潮迷音',cost:3,el:EL.WATER,tp:'debuff',dmg:0,desc:'敌方30%概率卡牌释放失败持续1回合',excl:'chaoxirenyu',fx:{failChance:30,dur:1}},
+  {id:'1061',nm:'寒霜封脉',cost:2,el:EL.WATER,tp:'debuff',dmg:0,desc:'敌方本回合骰子-2最低锁定1',excl:'hanshuanglinge',fx:{diceDown:2}},
+  {id:'1062',nm:'冰鳄突袭',cost:3,el:EL.WATER,tp:'dmg',dmg:350,desc:'350水伤+无视200内护盾',excl:'hanshuanglinge',fx:{igShield:200}},
+  {id:'1063',nm:'深渊侵蚀',cost:3,el:EL.WATER,tp:'debuff',dmg:0,desc:'全体敌方每回合流失80灵能持续2回合',excl:'shenyuanshuilong',fx:{aoe:true,dot:80,dur:2}},
+  {id:'1064',nm:'暗流隐匿',cost:2,el:EL.WATER,tp:'buff',dmg:0,desc:'本回合自身受到伤害降低40%',excl:'shenyuanshuilong',fx:{dmgReduce:40,dur:1}},
+  // --- 风属性专属 ---
+  {id:'1065',nm:'破空俯冲',cost:2,el:EL.WIND,tp:'dmg',dmg:320,desc:'320风伤+无视150护盾',excl:'jifengshenying',fx:{igShield:150}},
+  {id:'1066',nm:'流云加速',cost:2,el:EL.WIND,tp:'buff',dmg:0,desc:'全队下回合骰子点数整体+1',excl:'jifengshenying',fx:{diceBonus:1,dur:1}},
+  {id:'1067',nm:'风雷乱舞',cost:3,el:EL.WIND,tp:'dmg',dmg:360,desc:'360群体风伤+每回合流失60灵能',excl:'xuanfengleisun',fx:{aoe:true,dot:60,dur:1}},
+  {id:'1068',nm:'雷隼禁锢',cost:2,el:EL.WIND,tp:'negate',dmg:0,desc:'作废敌方一张手牌效果持续1回合',excl:'xuanfengleisun',fx:{negate:1}},
+  {id:'1069',nm:'云海屏障',cost:2,el:EL.WIND,tp:'shield',dmg:0,desc:'300风系闪避护盾',excl:'yunyitianma',fx:{shield:300,dodgeAmt:300}},
+  {id:'1070',nm:'天马疾驰',cost:3,el:EL.WIND,tp:'buff',dmg:0,desc:'本回合自身风系卡牌消耗-2',excl:'yunyitianma',fx:{windCostDown:2,dur:1}},
+  {id:'1071',nm:'暴风迷乱',cost:2,el:EL.WIND,tp:'debuff',dmg:0,desc:'敌方骰子随机±3浮动',excl:'baofenglinghu',fx:{diceRandom:1,dur:1}},
+  {id:'1072',nm:'风刃收割',cost:3,el:EL.WIND,tp:'dmg',dmg:310,desc:'310风伤+敌每多1手牌追加70',excl:'baofenglinghu',fx:{perEnemyCard:70}},
+  {id:'1073',nm:'流云割裂',cost:2,el:EL.WIND,tp:'debuff',dmg:0,desc:'敌方护盾每回合损耗90',excl:'liuyunfeiyuan',fx:{shieldDecay:90,dur:2}},
+  {id:'1074',nm:'长空封锁',cost:3,el:EL.WIND,tp:'debuff',dmg:0,desc:'敌方1回合内无法释放群体伤害卡牌',excl:'liuyunfeiyuan',fx:{blockAoe:1,dur:1}},
+  {id:'1075',nm:'雷霆风暴',cost:4,el:EL.WIND,tp:'dmg',dmg:420,desc:'420群体风伤',excl:'leitingfenglang',fx:{aoe:true}},
+  {id:'1076',nm:'奔雷掠影',cost:2,el:EL.WIND,tp:'buff',dmg:0,desc:'本回合自身攻击必定暴击',excl:'leitingfenglang',fx:{guaranteedCrit:1,dur:1}},
+  // --- 土属性专属 ---
+  {id:'1077',nm:'碎石迷阵',cost:2,el:EL.EARTH,tp:'debuff',dmg:0,desc:'敌方本回合暴击概率清零',excl:'changweiyinhu',fx:{critNull:1,dur:1}},
+  {id:'1078',nm:'岩尾重击',cost:3,el:EL.EARTH,tp:'dmg',dmg:330,desc:'330土伤+敌下回合基础攻击-180',excl:'changweiyinhu',fx:{atkDown:180,dur:1}},
+  {id:'1079',nm:'坚岩壁垒',cost:2,el:EL.EARTH,tp:'shield',dmg:0,desc:'360高额岩石护盾',excl:'zhuangjiayangui',fx:{shield:360}},
+  {id:'1080',nm:'地脉锁击',cost:3,el:EL.EARTH,tp:'debuff',dmg:0,desc:'敌方本回合无法释放高伤进攻卡',excl:'zhuangjiayangui',fx:{blockHighDmg:1,dur:1}},
+  // --- 光属性专属 ---
+  {id:'1081',nm:'圣麟净化',cost:2,el:EL.LIGHT,tp:'clear',dmg:0,desc:'清除全队所有负面debuff',excl:'shengguangqilin',fx:{clrSelfDeb:1}},
+  {id:'1082',nm:'耀光领域',cost:3,el:EL.LIGHT,tp:'buff',dmg:0,desc:'全队光系伤害+190持续1回合',excl:'shengguangqilin',fx:{lightDmgBonus:190,dur:1}},
+  {id:'1083',nm:'天耀裁决',cost:4,el:EL.LIGHT,tp:'dmg',dmg:480,desc:'480光伤+清空敌方全部攻击增益',excl:'tianyaoshenlong',fx:{clrAllEnemyBuffs:1}},
+  {id:'1084',nm:'圣光龙鳞',cost:2,el:EL.LIGHT,tp:'shield',dmg:0,desc:'全队生成240通用护盾',excl:'tianyaoshenlong',fx:{shield:240}},
+  {id:'1085',nm:'天使祷言',cost:2,el:EL.LIGHT,tp:'heal',dmg:0,desc:'全队回血200+回复120共享灵能',excl:'huiguangtianshi',fx:{heal:200,healSpirit:120}},
+  {id:'1086',nm:'耀光封印',cost:3,el:EL.LIGHT,tp:'debuff',dmg:0,desc:'敌方所有增益效果失效1回合',excl:'huiguangtianshi',fx:{buffNull:1,dur:1}},
+  {id:'1087',nm:'星轨增幅',cost:2,el:EL.LIGHT,tp:'buff',dmg:0,desc:'全队下回合骰子点数+2',excl:'xingchenbailu',fx:{diceBonus:2,dur:1}},
+  {id:'1088',nm:'星陨打击',cost:3,el:EL.LIGHT,tp:'dmg',dmg:340,desc:'340光伤+无视敌方全部护盾',excl:'xingchenbailu',fx:{igShield:9999}},
+  {id:'1089',nm:'耀晶反射',cost:2,el:EL.LIGHT,tp:'shield',dmg:0,desc:'280护盾+被攻击反弹120光伤',excl:'yaojingshijiu',fx:{shield:280,reflectDmg:120}},
+  {id:'1090',nm:'晶光封禁',cost:3,el:EL.LIGHT,tp:'debuff',dmg:0,desc:'敌方本回合无法释放专属魔弹卡牌',excl:'yaojingshijiu',fx:{blockExclusive:1,dur:1}},
+  {id:'1091',nm:'曦光滋养',cost:2,el:EL.LIGHT,tp:'buff',dmg:0,desc:'全队每回合回复100共享灵能持续2回合',excl:'xiguanglinglu',fx:{healPerTurn:100,dur:2}},
+  {id:'1092',nm:'破晓冲击',cost:3,el:EL.LIGHT,tp:'dmg',dmg:320,desc:'320光伤+驱散敌方全部护盾',excl:'xiguanglinglu',fx:{clrShield:1}},
+  // --- 暗属性专属 ---
+  {id:'1093',nm:'魔龙吞噬',cost:4,el:EL.DARK,tp:'dmg',dmg:470,desc:'470暗伤+30%转自身生命',excl:'anheimolong',fx:{lifeSteal:30}},
+  {id:'1094',nm:'暗影龙鳞',cost:2,el:EL.DARK,tp:'debuff',dmg:0,desc:'敌方每次攻击自身额外流失70灵能',excl:'anheimolong',fx:{atkDrain:70,dur:2}},
+  {id:'1095',nm:'邪影掠夺',cost:3,el:EL.DARK,tp:'buff',dmg:0,desc:'夺取敌方一层攻击增益转移至自身',excl:'xieyingxiuluo',fx:{stealBuff:1,dur:1}},
+  {id:'1096',nm:'修罗诅咒',cost:2,el:EL.DARK,tp:'debuff',dmg:0,desc:'敌方每回合流失90灵能持续2回合',excl:'xieyingxiuluo',fx:{dot:90,dur:2}},
+  {id:'1097',nm:'幽冥禁锢',cost:3,el:EL.DARK,tp:'debuff',dmg:0,desc:'敌方2回合内无法主动回复灵能',excl:'youmingmolong',fx:{healBlock:1,dur:2}},
+  {id:'1098',nm:'黑雾吞噬',cost:2,el:EL.DARK,tp:'dmg',dmg:300,desc:'300暗伤+夺取敌方1点魔能',excl:'youmingmolong',fx:{stealEnergy:1}},
+  {id:'1099',nm:'深渊腐蚀',cost:4,el:EL.DARK,tp:'debuff',dmg:0,desc:'全体敌方3层腐蚀每回合扣80灵能',excl:'shenyuanmozhu',fx:{aoe:true,dot:80,dur:99}},
+  {id:'1100',nm:'魔主领域',cost:3,el:EL.DARK,tp:'debuff',dmg:0,desc:'敌方所有卡牌消耗+2持续1回合',excl:'shenyuanmozhu',fx:{costUpAll:2,dur:1}},
 ];
 
 /* ============================================================
@@ -875,7 +1269,7 @@ function execCard(card,mon,user,enemy,gs,extra){
       /* [新增] 生命偷取 */
       if(card.fx.lifeSteal){const healAmt=Math.floor(spDmg*card.fx.lifeSteal/100);user.sp=Math.min(MAX_SP,user.sp+healAmt);res.heal=healAmt}
       /* [新增] 窃取魔能 */
-      if(card.fx.stealEnergy){const steal=Math.min(card.fx.stealEnergy,enemy.energy);enemy.energy-=steal;user.energy+=steal}
+      /* 🟢无需骰子-汲取回魔 */if(card.fx.stealEnergy){const steal=Math.min(card.fx.stealEnergy,enemy.energy);enemy.energy-=steal;user.energy+=steal}
       /* [新增] 摧毁敌方所有增益 */
       if(card.fx.clrAllEnemyBuffs){enemy.bufs=[];syncBuf(enemy)}
       if(enemy.aMon&&enemy.aMon.pas&&enemy.aMon.pas.t==='reactShield'){const p=enemy.aMon.pas;if(rChance(p.ch)){addShield(enemy,p.v,p.el);res.reactSh=p.v}}
@@ -915,7 +1309,7 @@ function execCard(card,mon,user,enemy,gs,extra){
       /* [新增] 免疫DOT */
       if(card.fx.immuneDot)addBuf(user,{t:'immuneDot',v:1,dur:card.fx.dur||1})
       /* [新增] 临时魔能 */
-      if(card.fx.tempEnergy){user.energy+=card.fx.tempEnergy;res.energyGain=card.fx.tempEnergy}
+      /* 🟢无需骰子-卡牌回魔 */if(card.fx.tempEnergy){user.energy+=card.fx.tempEnergy;res.energyGain=card.fx.tempEnergy}
       /* [新增] 复制敌方buff */
       if(card.fx.copyBuff&&enemy.bufs.length){const rb=enemy.bufs[rnd(enemy.bufs.length)];addBuf(user,{...rb,dur:1})}
       break}
@@ -1118,28 +1512,46 @@ function postTurn(gs){
   }
 }
 /* [新增·交替机制v3] 完整回合=双方交替出牌直到都跳过/无可用卡牌 */
-function startTurn(gs){
+/* [骰子动画改造] startTurn同步重置+Promise链式播骰子，完成后回调onDone */
+function startTurn(gs, onDone){
   gs.ultUsed=false;gs.negFlag=false;gs.playedCards=new Set()
   gs.subPassed=0;gs.sideDone=new Set();gs.discarded=new Set();gs.discardMode=false;gs.discardUsed=false
+  battleSelCard=null;
   preTurn(gs);if(gs.over){showGameOver(gs);return}
-  /* [新增] 魔能清空 */
+  /* 🔴 需骰子动画-回合重置：清空双方魔能 */
   gs.p1.energy=0;gs.p2.energy=0
-  /* [修复] 双方各自掷骰获取魔能(交替机制双方都需要能量) */
-  try{['p1','p2'].forEach(side=>{
-    const st=gs[side];if(!st||!st.monsters)return;
-    let mon=st.aMon;if(!mon)return;
+  renderBattle(gs)
+  /* 🔴 需骰子动画：计算骰子数值 */
+  const diceResults=[];
+  ['p1','p2'].forEach(side=>{
+    const st=gs[side];if(!st||!st.monsters){diceResults.push(null);return}
+    let mon=st.aMon;if(!mon){diceResults.push(null);return}
     if(mon.id==='jiamianshengluo'&&!mon._el&&!mon.el){mon._el=ALL_EL[rnd(ALL_EL.length)];mon.el=mon._el}
     let dice=rDiceWeighted(mon.id);
     if(st.diceMax>0&&dice>st.diceMax)dice=st.diceMax;
     if(st.diceDown>0)dice=Math.max(1,dice-st.diceDown);
     if(st.diceRandom){const offset=rnd(5)-2;dice=Math.max(1,Math.min(6,dice+offset))}
-    st.energy=dice;
-    /* [新增] 获得魔能时清除当前护盾30% */
-    if(st.shield>0){const lost=Math.floor(st.shield*0.3);st.shield-=lost;addLog(gs,side,'🛡魔能获取→护盾衰减'+lost)}
-    addLog(gs,side,'🎲骰子'+dice+'→魔能+'+dice)
-  })}catch(e){console.error('dice error',e)}
-  gs.phase='act';gs.subTurn=gs.turn;gs.subPassed=0
-  const h=Q('#vs-hint');if(h)h.textContent='⚡新回合开始';
+    diceResults.push(dice);
+  });
+  /* Promise链：串行播放双方骰子→赋值魔能→设置phase→回调 */
+  const sides=['p1','p2'];
+  let chain=Promise.resolve();
+  sides.forEach((side,i)=>{
+    const st=gs[side];if(!st||!diceResults[i])return;
+    const dice=diceResults[i];
+    chain=chain.then(()=>rollDiceGetMana(side==='p1',dice)).then(()=>{
+      st.energy=dice;
+      if(st.shield>0){const lost=Math.floor(st.shield*0.3);st.shield-=lost;addLog(gs,side,'🛡魔能获取→护盾衰减'+lost)}
+      addLog(gs,side,'🎲骰子'+dice+'→魔能+'+dice)
+      renderBattle(gs)
+    });
+  });
+  chain.then(()=>{
+    gs.phase='act';gs.subTurn=gs.turn;gs.subPassed=0
+    const h=Q('#vs-hint');if(h)h.textContent='⚡新回合开始';
+    renderBattle(gs)
+    if(onDone)onDone();
+  });
 }
 
 /* [新增] 子回合传递——一方出牌后移交操作权 */
@@ -1157,7 +1569,7 @@ function passSubTurn(gs){
 
 /* [新增] 玩家跳过——主动放弃当前出牌权 */
 function playerPass(gs){
-  if(gs.phase!=='act'||gs.subTurn!=='p1'||gs.over){if(gs.over)showGameOver(gs);return}
+  if(gs.phase!=='act'||gs.subTurn!=='p1'||gs.over||isDiceAnimating){if(gs.over)showGameOver(gs);return}
   gs.subPassed++
   addLog(gs,'p1','跳过出牌')
   if(gs.subPassed>=2){endFullTurn(gs);return}
@@ -1192,11 +1604,12 @@ function endFullTurn(gs){
 function passTurn(gs){
   gs.turn=gs.turn==='p1'?'p2':'p1';gs.tNum++
   renderBattle(gs)
-  startTurn(gs);renderBattle(gs)
-  if(gs.over){showGameOver(gs);return}
-  /* [修复] 新回合若轮到AI，触发aiSubTurn */
-  if(gs.mode==='pve'&&gs.subTurn==='p2'){setTimeout(()=>aiSubTurn(gs),200)}
-  if(gs.mode==='pvp'){setTimeout(()=>showPassOverlay(gs),300)}
+  renderBattle(gs)
+  startTurn(gs,()=>{
+    if(gs.over){showGameOver(gs);return}
+    if(gs.mode==='pve'&&gs.subTurn==='p2'){setTimeout(()=>aiSubTurn(gs),200)}
+    if(gs.mode==='pvp'){setTimeout(()=>showPassOverlay(gs),300)}
+  });
 }
 
 /* [修复v2] AI回合全自动+防御性编程 — 加try/catch+迭代上限+超时强制推进 */
@@ -1256,6 +1669,39 @@ function showCoinModal(cb){
   Q('#bac').addEventListener('click',()=>{closeMo();if(cb)cb()})
 }
 
+/* [新增] 骰子动画全局锁——动画期间禁止所有操作 */
+let isDiceAnimating=false;
+
+/* [新增·封装修] rollDiceGetMana(isSelf, addManaNum)
+   仅回合开局魔能逻辑调用；卡牌/技能回魔直接赋值，不调用此函数
+   isSelf=true→己方金色骰子, false→敌方红色骰子
+   addManaNum=已由rDiceWeighted计算好的魔能数值
+   返回Promise，动画完成后resolve */
+function rollDiceGetMana(isSelf, addManaNum){
+  isDiceAnimating=true;
+  const cssCls=isSelf?'dice-modal-self':'dice-modal-enemy';
+  const gs=GS;const side=isSelf?'p1':'p2';const st=gs[side];
+  const nick=st&&st.nick?st.nick:(isSelf?'玩家':'AI');
+  const dice=addManaNum;
+  // 面在立方体上的位置旋转（绕轴后外推30px形成六面体）
+  const FACE_POS={1:'rotateY(0deg)',2:'rotateY(90deg)',3:'rotateX(90deg)',4:'rotateX(-90deg)',5:'rotateY(-90deg)',6:'rotateY(180deg)'};
+  // 容器逆向旋转使目标面朝前（= 面位置旋转的逆）
+  const CUBE_ROT={1:'rotateY(0deg)',2:'rotateY(-90deg)',3:'rotateX(-90deg)',4:'rotateX(90deg)',5:'rotateY(90deg)',6:'rotateY(180deg)'};
+  const DICE_FACE={1:'⚀',2:'⚁',3:'⚂',4:'⚃',5:'⚄',6:'⚅'};
+  return new Promise(resolve=>{
+    modal(`<div class="modal ${cssCls}"><h2>🎲 魔能获取</h2><p style="font-size:12px;color:var(--dim)">${nick} 摇骰子</p>
+      <div class="dice-box"><div class="dice-cube" id="dc">${[1,2,3,4,5,6].map(n=>'<div class="dface" style="transform:'+FACE_POS[n]+' translateZ(30px)">'+n+'</div>').join('')}</div></div>
+      <p id="dr" style="font-size:22px;font-weight:900;margin-top:10px;opacity:0;transition:opacity .3s"><span style="font-size:40px">${DICE_FACE[dice]}</span><br>获得 <span style="color:var(--gold);font-size:26px">${dice}</span> 点魔能</p>
+      <button class="btn-p" id="bad" style="display:none;margin-top:8px">确认</button></div>`);
+    setTimeout(()=>{
+      const dc=Q('#dc');if(dc){dc.style.animation='none';dc.offsetHeight;dc.style.transform=CUBE_ROT[dice]}
+      const dr=Q('#dr');if(dr)dr.style.opacity='1';
+      const bad=Q('#bad');if(bad)bad.style.display='inline-block'
+    },600);
+    const badBtn=Q('#bad');if(badBtn)badBtn.addEventListener('click',()=>{closeMo();isDiceAnimating=false;resolve()});
+  });
+}
+
 function showDiceModal(side,cb){
   const dice=rDice();const FR={1:'rotateX(0deg)rotateY(0deg)',2:'rotateX(0deg)rotateY(180deg)',3:'rotateX(0deg)rotateY(-90deg)',4:'rotateX(0deg)rotateY(90deg)',5:'rotateX(-90deg)rotateY(0deg)',6:'rotateX(90deg)rotateY(0deg)'}
   modal(`<div class="modal"><h2>🎲 魔能获取</h2><p style="font-size:12px;color:var(--dim)">${GS[side].nick||side} 摇骰子</p>
@@ -1268,7 +1714,7 @@ function showDiceModal(side,cb){
 
 /* [新增] 任意时刻切换魔弹——直接标记自身回合结束 */
 function switchNow(gs){
-  if(gs.p1.monsters.length<=1)return
+  if(isDiceAnimating)return;if(gs.p1.monsters.length<=1)return
   showSwitchModal(gs,'p1')
 }
 
@@ -1373,8 +1819,28 @@ function renderBattle(gs){
 
   /* === 手牌（仅P1） === */
   const mon=stP1.aMon;const cards=mon?getCards(mon):[];const canAct=gs.phase==='act'&&gs.subTurn==='p1'&&!gs.sideDone.has('p1')&&!gs.over;
-  Q('#cards-p1').innerHTML=cards.length?cards.map(c=>{const cost=getCost(c,mon,stP1);const discarded=gs.discarded.has(c.id);const ok=canAct&&!discarded&&cost<=stP1.energy&&!stP1.locked.includes(c.id);const css=c.el?EL_CSS[c.el]:'d'
-    return`<div class="card-item${discarded||!ok?' off':''} bd-${css}" ${ok&&!discarded?`onclick="onCard('${c.id}')"`:''} title="${c.desc}${c.excl?' [专属]':''}${discarded?' [已弃]':''}"><span class="cost">${cost}</span><div class="card-thumb"><img src="${getCardSVG(c.id)}" alt="${c.nm}" loading="lazy" onerror="this.style.display='none'"></div><span class="cname el-${css}">${c.nm}${discarded?' 🗑':''}</span>${c.dmg>0?'<span class="cinfo">💥'+c.dmg+'</span>':''}</div>`}).join(''):'<div style="font-size:10px;color:var(--dim);padding:8px;text-align:center">无可用卡牌</div>';
+  Q('#cards-p1').innerHTML=cards.length?cards.map(c=>{const cost=getCost(c,mon,stP1);const discarded=gs.discarded.has(c.id);const ok=canAct&&!discarded&&cost<=stP1.energy&&!stP1.locked.includes(c.id);const css=c.el?EL_CSS[c.el]:'d';const sel=battleSelCard===c.id?' style="border-color:var(--gold)!important;box-shadow:0 0 20px rgba(240,192,64,.5);transform:translateY(-6px);z-index:5"':''
+    return`<div class="card-item${discarded||!ok?' off':''} bd-${css}" ${ok&&!discarded?`onclick="onCard('${c.id}')"`:''} title="${c.desc}${c.excl?' [专属]':''}${discarded?' [已弃]':''}${sel?' [已选中]':''}"${sel}><span class="cost">${cost}</span><div class="card-thumb"><img src="${getCardSVG(c.id)}" alt="${c.nm}" loading="lazy" onerror="this.style.display='none'"></div><span class="cname el-${css}">${c.nm}${discarded?' 🗑':''}${sel?' ✓':''}</span>${c.dmg>0?'<span class="cinfo">💥'+c.dmg+'</span>':''}</div>`}).join(''):'<div style="font-size:10px;color:var(--dim);padding:8px;text-align:center">无可用卡牌</div>';
+  // 选中卡牌预览面板
+  const previewEl=Q('#card-preview');if(previewEl){
+    if(battleSelCard&&canAct&&!gs.discardMode){
+      const sc=getCard(battleSelCard);
+      if(sc){
+        const scost=getCost(sc,mon,stP1);const scss=sc.el?EL_CSS[sc.el]:'d';
+        previewEl.style.display='block';
+        previewEl.innerHTML=`<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center">
+          <span class="el-${scss}" style="font-weight:900;font-size:14px">🃏${sc.nm}</span>
+          <span style="color:var(--gold);font-weight:700">⚡消耗${scost}</span>
+          ${sc.dmg>0?`<span style="color:#ff6b6b;font-weight:700">💥${sc.dmg}伤害</span>`:''}
+          <span style="color:var(--dim);font-size:11px">${sc.desc}</span>
+          <button class="btn-p btn-sm" onclick="useCard()" style="padding:6px 18px;font-size:13px">⚡ 使用此卡</button>
+          <button class="btn-s btn-sm" onclick="battleSelCard=null;renderBattle(GS)" style="font-size:10px">取消</button>
+        </div>`;
+        return;
+      }
+    }
+    previewEl.style.display='none';
+  }
 
   /* === 顶部/VS === */
   Q('#bt-turn').textContent=gs.over?'对局结束':'回合'+gs.tNum+' · '+(gs.turn==='p1'?stP1.nick:stP2.nick)+'方';
@@ -1397,24 +1863,67 @@ function renderBattle(gs){
     const subWho=gs.subTurn==='p1'?'🧑玩家':'🤖AI';
     const info=Q('#bt-turn');if(info)info.textContent='回合'+gs.tNum+' · 子回合:'+subWho+(gs.sideDone.has('p1')?' (玩家结束)':'')+(gs.sideDone.has('p2')?' (AI结束)':'');
   }
+  /* [新增] 刷新敌方资源面板 */
+  renderEnemyPanel(gs);
 }
 
+
+/* [新增] 敌方资源可视化面板——实时刷新魔能/护盾/debuff */
+function renderEnemyPanel(gs){
+  const st=gs.p2;if(!st)return;
+  const mon=st.aMon;
+  const elName=Q('#ep-name');if(elName)elName.textContent=mon?mon.nm:'—';
+  const elAtk=Q('#ep-atk');if(elAtk)elAtk.textContent=mon?mon.atk:'0';
+  const elEnergy=Q('#ep-energy');if(elEnergy)elEnergy.textContent=st.energy;
+  const elShield=Q('#ep-shield');if(elShield)elShield.textContent=st.shield;
+  const elDebs=Q('#ep-debuffs');if(elDebs){
+    const debs=st.debs||[];
+    if(!debs.length){elDebs.textContent='';}
+    else{
+      const parts=[];
+      debs.forEach(d=>{
+        if(d.t==='dot')parts.push('🔥流失'+d.v+(d.perm?'(永久)':'('+d.dur+'回合)'));
+        else if(d.t==='atkDown')parts.push('⬇攻-'+d.v);
+        else if(d.t==='costUp')parts.push('💰消耗+'+d.v);
+        else if(d.t==='ultSeal')parts.push('🚫封必杀');
+        else if(d.t==='dmgHalf')parts.push('➗伤害减半');
+        else if(d.t==='diceMax')parts.push('🎲上限'+d.v);
+        else if(d.t==='diceDown')parts.push('🎲减值'+d.v);
+        else if(d.t==='locked')parts.push('🔒锁卡');
+      });
+      elDebs.textContent=parts.join(' · ');
+    }
+  }
+}
+
+/* [新增] 操作守卫——骰子动画期间拦截所有操作 */
+let battleSelCard=null; // 当前对战中选中的卡牌ID（预览状态）
+
 function onCard(cardId){
-  if(GS.phase!=='act'||GS.subTurn!=='p1'||GS.sideDone.has('p1')||GS.over)return
-  /* [新增] 弃牌模式：点击卡牌=舍弃该卡，消耗联动机会，可追加出一张 */
+  if(GS.phase!=='act'||GS.subTurn!=='p1'||GS.sideDone.has('p1')||GS.over||isDiceAnimating)return
+  /* 弃牌模式：点击卡牌=舍弃该卡 */
   if(GS.discardMode){
     if(GS.discarded.has(cardId)){tip('此卡已舍弃');return}
     GS.discarded.add(cardId);GS.discardMode=false;GS.discardUsed=true
     addLog(GS,'p1','🗑舍弃「'+getCard(cardId).nm+'」→联动再出一张')
     tip('已舍弃，可额外打出一张卡牌')
-    renderBattle(GS)
-    return // 不出牌，等玩家再次主动选卡打出（联动出牌机会）
+    battleSelCard=null;renderBattle(GS)
+    return
   }
-  /* 正常出牌 */
-  const res=playCard(GS,cardId,'p1')
-  if(!res.ok){tip(res.msg);return}
+  /* 点击已选中的卡 → 取消选中 */
+  if(battleSelCard===cardId){battleSelCard=null;renderBattle(GS);return}
+  /* 选中卡牌 → 显示预览 */
+  battleSelCard=cardId;renderBattle(GS)
+}
+
+/* 确认使用选中的卡牌 */
+function useCard(){
+  if(!battleSelCard)return;
+  if(GS.phase!=='act'||GS.subTurn!=='p1'||GS.sideDone.has('p1')||GS.over)return
+  const res=playCard(GS,battleSelCard,'p1')
+  if(!res.ok){tip(res.msg);battleSelCard=null;renderBattle(GS);return}
   playCardEffects(res,'p1')
-  renderBattle(GS)
+  battleSelCard=null;renderBattle(GS)
   if(GS.over)showGameOver(GS)
 }
 
@@ -1558,11 +2067,11 @@ function toggleReg(isReg){
   Q('#login-msg').textContent=''
 }
 
-function goLogin(){Q('#login-page').classList.add('active');Q('#lobby-page').classList.remove('active');Q('#battle-page').classList.remove('active')
+function goLogin(){Q('#login-page').classList.add('active');Q('#lobby-page').classList.remove('active');Q('#battle-page').classList.remove('active');Q('#catalog-page').classList.remove('active');Q('#btn-catalog-battle').style.display='none';Q('#btn-catalog-back').style.display='none'
   Q('#in-account').value='';Q('#in-password').value='';Q('#in-nickname').value='';toggleReg(false)}
-function goLobby(){Q('#login-page').classList.remove('active');Q('#lobby-page').classList.add('active');Q('#battle-page').classList.remove('active')
+function goLobby(){Q('#login-page').classList.remove('active');Q('#lobby-page').classList.add('active');Q('#battle-page').classList.remove('active');Q('#catalog-page').classList.remove('active');Q('#btn-catalog-battle').style.display='none';Q('#btn-catalog-back').style.display='none'
   if(curUser){const u=findUser(curUser.account);if(u)curUser=u;renderLobby()};closeMo()}
-function goBattle(){Q('#login-page').classList.remove('active');Q('#lobby-page').classList.remove('active');Q('#battle-page').classList.add('active')}
+function goBattle(){Q('#login-page').classList.remove('active');Q('#lobby-page').classList.remove('active');Q('#battle-page').classList.add('active');Q('#catalog-page').classList.remove('active');Q('#btn-catalog-battle').style.display='none';Q('#btn-catalog-back').style.display='none'}
 
 function renderLobby(){
   Q('#lobby-nick').textContent=curUser?curUser.nickname:'—'
@@ -1582,9 +2091,10 @@ function startPVE(){
       GS.p2.monsters.forEach(m=>{if(m.id==='jiamianshengluo'&&!m._el){m._el=ALL_EL[rnd(ALL_EL.length)];m.el=m._el}})
       preloadTeamImgs(GS.p2)
       showCoinModal(()=>{
-        renderBattle(GS);startTurn(GS);renderBattle(GS)
-        if(GS.over){showGameOver(GS);return}
-        if(GS.turn==='p2'){setTimeout(()=>{if(GS.subTurn==='p2')aiSubTurn(GS)},200)}
+        renderBattle(GS);startTurn(GS,()=>{
+          if(GS.over){showGameOver(GS);return}
+          if(GS.subTurn==='p2'&&GS.mode==='pve'){setTimeout(()=>aiSubTurn(GS),200)}
+        });
       })
     }catch(e){console.error('startPVE错误:',e);tip('编队失败，请重试')}
   })
@@ -1600,9 +2110,10 @@ function startPVP(){
     Q('#bp2go').addEventListener('click',()=>{closeMo()
       showPickModal('p2',()=>{
         showCoinModal(()=>{
-          renderBattle(GS);startTurn(GS);renderBattle(GS)
-          if(GS.over){showGameOver(GS);return}
-          if(GS.turn==='p2'){setTimeout(()=>showPassOverlay(GS),300)}
+          renderBattle(GS);startTurn(GS,()=>{
+            if(GS.over){showGameOver(GS);return}
+            if(GS.turn==='p2'){setTimeout(()=>showPassOverlay(GS),300)}
+          });
         })
       })
     })
@@ -1612,6 +2123,577 @@ function startPVP(){
 /* ============================================================
    十六、事件绑定
    ============================================================ */
+/* ============================================================
+   [UI大改] 魔弹图鉴 + 卡牌效果目录 — 全部交互逻辑
+   数据100%来自MONSTERS/CARDS数组，与对战系统实时互通
+   ============================================================ */
+
+/* --- [新增] 图鉴专属魔弹数据（不含战斗系统） --- */
+const CATALOG_EXTRAS=[
+  // 火7(爆焱龙/火翼龙王已在对战数据中)
+  {id:'chiyanliehuang',nm:'赤焰烈凰',stg:'基础',lk:'未知',el:'fire',atk:310,ult:{nm:'涅槃烈焰',dmg:470,el:'fire'},pas:null,cat:'phoenix'},
+  {id:'lieyanxiongshi',nm:'烈焰雄狮',stg:'基础',lk:'未知',el:'fire',atk:300,ult:{nm:'狮王咆哮',dmg:430,el:'fire'},pas:null,cat:'beast'},
+  {id:'ronghuojuxi',nm:'熔火巨蜥',stg:'基础',lk:'未知',el:'fire',atk:290,ult:{nm:'熔岩喷射',dmg:410,el:'fire'},pas:null,cat:'reptile'},
+  {id:'yanmolingzhu',nm:'炎魔领主',stg:'觉醒',lk:'未知',el:'fire',atk:440,ult:{nm:'地狱烈焰',dmg:600,el:'fire'},pas:{t:'fireDmgBonus',v:150},cat:'demon'},
+  {id:'fentianhuolong',nm:'焚天火龙',stg:'觉醒',lk:'未知',el:'fire',atk:450,ult:{nm:'焚天烈焰',dmg:680,el:'fire'},pas:null,cat:'dragon'},
+  {id:'jinhuohu',nm:'烬火狐',stg:'基础',lk:'未知',el:'fire',atk:280,ult:{nm:'余烬之舞',dmg:380,el:'fire'},pas:{t:'dot',v:60,dur:2},cat:'beast'},
+  // 水6(幻麒麟/极冰腾蛇已在对战数据中)
+  {id:'binglinhaishou',nm:'冰麟海兽',stg:'基础',lk:'未知',el:'water',atk:300,ult:{nm:'深海寒流',dmg:420,el:'water'},pas:null,cat:'beast'},
+  {id:'canglanjiaolong',nm:'沧澜蛟龙',stg:'觉醒',lk:'未知',el:'water',atk:420,ult:{nm:'沧海怒涛',dmg:580,el:'water'},pas:null,cat:'dragon'},
+  {id:'bingjingxuanguei',nm:'冰晶玄龟',stg:'基础',lk:'未知',el:'water',atk:260,ult:{nm:'永冻结界',dmg:350,el:'water'},pas:{t:'reactShield',ch:.35,v:200},cat:'beast'},
+  {id:'chaoxirenyu',nm:'潮汐人鱼',stg:'基础',lk:'未知',el:'water',atk:290,ult:{nm:'海之旋律',dmg:400,el:'water'},pas:{t:'healTurn',v:120},cat:'humanoid'},
+  {id:'hanshuanglinge',nm:'寒霜灵鳄',stg:'基础',lk:'未知',el:'water',atk:310,ult:{nm:'冰河猎杀',dmg:440,el:'water'},pas:null,cat:'reptile'},
+  {id:'shenyuanshuilong',nm:'深渊水龙',stg:'觉醒',lk:'未知',el:'water',atk:440,ult:{nm:'深渊吞噬',dmg:620,el:'water'},pas:null,cat:'dragon'},
+  // 风6(玄翎凤凰/鬼面圣君已在对战数据中)
+  {id:'jifengshenying',nm:'疾风神鹰',stg:'基础',lk:'未知',el:'wind',atk:310,ult:{nm:'苍穹俯冲',dmg:440,el:'wind'},pas:null,cat:'bird'},
+  {id:'xuanfengleisun',nm:'旋风雷隼',stg:'基础',lk:'未知',el:'wind',atk:320,ult:{nm:'雷霆俯冲',dmg:450,el:'wind'},pas:null,cat:'bird'},
+  {id:'yunyitianma',nm:'云翼天马',stg:'基础',lk:'未知',el:'wind',atk:290,ult:{nm:'天马行空',dmg:420,el:'wind'},pas:{t:'windCostDown',v:1},cat:'mythical'},
+  {id:'baofenglinghu',nm:'暴风灵狐',stg:'基础',lk:'未知',el:'wind',atk:280,ult:{nm:'暴风之舞',dmg:400,el:'wind'},pas:null,cat:'beast'},
+  {id:'liuyunfeiyuan',nm:'流云飞鸢',stg:'基础',lk:'未知',el:'wind',atk:300,ult:{nm:'苍穹之舞',dmg:430,el:'wind'},pas:null,cat:'bird'},
+  {id:'leitingfenglang',nm:'雷霆风狼',stg:'觉醒',lk:'未知',el:'wind',atk:410,ult:{nm:'风暴猎杀',dmg:560,el:'wind'},pas:null,cat:'beast'},
+  // 土5(超能战虎/霸极皇虎/摩岩巨象/魔域毒蝎已在对战数据中)
+  {id:'changweiyinhu',nm:'长尾银狐',stg:'基础',lk:'未知',el:'earth',atk:290,ult:{nm:'狡黠之影',dmg:410,el:'earth'},pas:null,cat:'beast'},
+  {id:'zhuangjiayangui',nm:'装甲岩龟',stg:'基础',lk:'未知',el:'earth',atk:270,ult:{nm:'山岳守护',dmg:380,el:'earth'},pas:{t:'reactShield',ch:.4,v:250},cat:'beast'},
+  {id:'yanjiajuxiong',nm:'岩甲巨熊',stg:'觉醒',lk:'未知',el:'earth',atk:430,ult:{nm:'山岳之怒',dmg:570,el:'earth'},pas:null,cat:'beast'},
+  {id:'shanyueshixi',nm:'山岳石犀',stg:'觉醒',lk:'未知',el:'earth',atk:420,ult:{nm:'大地冲锋',dmg:550,el:'earth'},pas:null,cat:'beast'},
+  // 光6(独角天马/圣光天马已在对战数据中)
+  {id:'shengguangqilin',nm:'圣光麒麟',stg:'觉醒',lk:'未知',el:'light',atk:430,ult:{nm:'神圣制裁',dmg:560,el:'light'},pas:{t:'healTurn',v:180},cat:'mythical'},
+  {id:'tianyaoshenlong',nm:'天耀神龙',stg:'觉醒',lk:'未知',el:'light',atk:450,ult:{nm:'苍穹之光',dmg:600,el:'light'},pas:null,cat:'dragon'},
+  {id:'huiguangtianshi',nm:'辉光天使',stg:'基础',lk:'未知',el:'light',atk:320,ult:{nm:'光明之翼',dmg:480,el:'light'},pas:{t:'healTurn',v:130},cat:'humanoid'},
+  {id:'xingchenbailu',nm:'星辰白鹿',stg:'基础',lk:'未知',el:'light',atk:300,ult:{nm:'星之引导',dmg:440,el:'light'},pas:null,cat:'mythical'},
+  {id:'yaojingshijiu',nm:'耀晶狮鹫',stg:'觉醒',lk:'未知',el:'light',atk:420,ult:{nm:'光之审判',dmg:550,el:'light'},pas:null,cat:'mythical'},
+  {id:'xiguanglinglu',nm:'曦光灵鹿',stg:'基础',lk:'未知',el:'light',atk:290,ult:{nm:'晨光祝福',dmg:420,el:'light'},pas:{t:'healTurn',v:100},cat:'mythical'},
+  // 暗6(神魔双体/混沌恶灵已在对战数据中)
+  {id:'anheimolong',nm:'暗黑魔龙',stg:'觉醒',lk:'未知',el:'dark',atk:450,ult:{nm:'虚无之翼',dmg:620,el:'dark'},pas:null,cat:'dragon'},
+  {id:'xieyingxiuluo',nm:'邪影修罗',stg:'觉醒',lk:'未知',el:'dark',atk:440,ult:{nm:'影之支配',dmg:580,el:'dark'},pas:null,cat:'demon'},
+  {id:'anyingmofu',nm:'暗影魔蝠',stg:'基础',lk:'未知',el:'dark',atk:290,ult:{nm:'夜幕猎杀',dmg:420,el:'dark'},pas:{t:'dot',v:50,perm:true},cat:'beast'},
+  {id:'shihunyelang',nm:'噬魂夜狼',stg:'基础',lk:'未知',el:'dark',atk:310,ult:{nm:'月下狂啸',dmg:450,el:'dark'},pas:null,cat:'beast'},
+  {id:'youmingmolong',nm:'幽冥魔龙',stg:'觉醒',lk:'未知',el:'dark',atk:460,ult:{nm:'冥界之门',dmg:650,el:'dark'},pas:null,cat:'dragon'},
+  {id:'shenyuanmozhu',nm:'深渊魔主',stg:'特殊',lk:'未知',el:'dark',atk:480,ult:{nm:'万魔之怒',dmg:700,el:'dark'},pas:{t:'multiDomain',atkBonus:150,costM1:true},cat:'demon'},
+];
+// 合并完整图鉴列表
+const ALL_CATALOG_MONS=MONSTERS; // 全部魔弹已统一加入MONSTERS对战数据库
+// 图鉴魔弹SVG文件名映射（点击跳转用）
+const CAT_SVG_MAP={
+  chiyanliehuang:'fire_赤焰烈凰',lieyanxiongshi:'fire_烈焰雄狮',ronghuojuxi:'fire_熔火巨蜥',
+  yanmolingzhu:'fire_炎魔领主',fentianhuolong:'fire_焚天火龙',jinhuohu:'fire_烬火狐',
+  binglinhaishou:'water_冰麟海兽',canglanjiaolong:'water_沧澜蛟龙',bingjingxuanguei:'water_冰晶玄龟',
+  chaoxirenyu:'water_潮汐人鱼',hanshuanglinge:'water_寒霜灵鳄',shenyuanshuilong:'water_深渊水龙',
+  jifengshenying:'wind_疾风神鹰',xuanfengleisun:'wind_旋风雷隼',yunyitianma:'wind_云翼天马',
+  baofenglinghu:'wind_暴风灵狐',liuyunfeiyuan:'wind_流云飞鸢',leitingfenglang:'wind_雷霆风狼',
+  changweiyinhu:'earth_长尾银狐',zhuangjiayangui:'earth_装甲岩龟',yanjiajuxiong:'earth_岩甲巨熊',shanyueshixi:'earth_山岳石犀',
+  shengguangqilin:'light_圣光麒麟',tianyaoshenlong:'light_天耀神龙',huiguangtianshi:'light_辉光天使',
+  xingchenbailu:'light_星辰白鹿',yaojingshijiu:'light_耀晶狮鹫',xiguanglinglu:'light_曦光灵鹿',
+  anheimolong:'dark_暗黑魔龙',xieyingxiuluo:'dark_邪影修罗',anyingmofu:'dark_暗影魔蝠',
+  shihunyelang:'dark_噬魂夜狼',youmingmolong:'dark_幽冥魔龙',shenyuanmozhu:'dark_深渊魔主',
+};
+
+/* --- 目录全局状态 --- */
+let monPage=0;const monPerPage=12;
+let monElFilters=new Set(); // 多选元素筛选
+let monStageFilter='all';   // 联动分类：all / base / awaken / special / duo / trio
+let monFavOnly=false;
+let monSearchText='';
+let monFavorites=loadFavorites();
+
+let cardPage=0;const cardPerPage=12;
+let cardCatFilter='all';    // 卡牌分类：all / offense / defense / control / support
+let cardSearchText='';
+
+let catalogMonId=null;      // 当前「对战试用」预选魔弹
+let catalogCardId=null;     // 当前「对战试用」预选卡牌
+
+/* --- 收藏 localStorage --- */
+const FAV_KEY='mdw_cat_favs';
+function loadFavorites(){try{return new Set(JSON.parse(localStorage.getItem(FAV_KEY)||'[]'))}catch(e){return new Set()}}
+function saveFavorites(){try{localStorage.setItem(FAV_KEY,JSON.stringify([...monFavorites]))}catch(e){}}
+
+/* --- 卡牌四大分类 --- */
+function classifyCard(c){
+  const tp=c.tp,fx=c.fx||{};
+  // 进攻类：伤害、吸血、灵能汲取
+  if(tp==='dmg'||tp==='drain')return'offense';
+  // 防御类：护盾、闪避、减伤
+  if(tp==='shield'||tp==='dodge')return'defense';
+  // 控制类：debuff(削攻/封印/禁锢)、lock、negate
+  if(tp==='debuff'||tp==='lock'||tp==='negate')return'control';
+  // 辅助功能类：治疗、增益、净化
+  if(tp==='heal'||tp==='buff'||tp==='clear')return'support';
+  return'support'; // 默认归辅助
+}
+const CAT_NAMES={offense:'⚔️ 进攻类',defense:'🛡 防御类',control:'🔒 控制类',support:'💊 辅助功能类',exclusive:'🔒 专属限定'};
+const CAT_DESC={
+  offense:'增伤·暴击·贯穿·破盾·灼烧·毒素',
+  defense:'护盾·减伤·闪避·反伤·回血',
+  control:'眩晕·封印·削灵能·禁锢',
+  support:'回灵能·抽卡·复活·增幅·合击',
+  exclusive:'仅对应魔弹主战时可使用'};
+
+/* --- 导航到目录页 --- */
+function goCatalog(){
+  goBattlePageOff();
+  Q('#login-page').classList.remove('active');Q('#lobby-page').classList.remove('active');
+  Q('#battle-page').classList.remove('active');Q('#catalog-page').classList.add('active');
+  Q('#btn-catalog-battle').style.display='block';Q('#btn-catalog-back').style.display='block';
+  monPage=0;cardPage=0;catalogMonId=null;catalogCardId=null;
+  renderMonFilters();renderMonsterCatalog();
+  renderCardFilters();renderCardCategories();renderCardCatalog();
+}
+function goBattlePageOff(){
+  Q('#login-page').classList.remove('active');Q('#lobby-page').classList.remove('active');
+  Q('#battle-page').classList.remove('active');
+}
+
+/* ========== 左侧：魔弹图鉴 ========== */
+
+/* 渲染筛选栏 */
+function renderMonFilters(){
+  const h=[];const allEls=['fire','light','earth','dark','water','wind'];
+  // 搜索框
+  h.push(`<input class="cat-search" id="mon-search" placeholder="🔍 搜索魔弹名称..." value="${escHtml(monSearchText)}" oninput="onMonSearch(this.value)">`);
+  // 我的收藏
+  h.push(`<span class="cat-tag fav${monFavOnly?' active':''}" onclick="toggleFavOnly()">❤️ 我的收藏${monFavorites.size?`(${monFavorites.size})`:''}</span>`);
+  // 属性标签（多选）
+  allEls.forEach(e=>{
+    const active=monElFilters.has(e)?' active':'';
+    h.push(`<span class="cat-tag bd-${EL_CSS[e]} el-${EL_CSS[e]}${active}" onclick="toggleMonEl('${e}')">${EL_ICON[e]}${EL_NAME[e]}</span>`);
+  });
+  // 联动分类
+  const stages=[{k:'all',v:'全部'},{k:'base',v:'单体魔弹'},{k:'awaken',v:'双人联动'},{k:'special',v:'三弹合击'}];
+  stages.forEach(s=>{const active=monStageFilter===s.k?' active':'';h.push(`<span class="cat-tag${active}" onclick="setMonStage('${s.k}')">${s.v}</span>`)});
+  Q('#mon-filter').innerHTML=h.join('');
+}
+
+/* 筛选逻辑 */
+function getFilteredMons(){
+  let mons=[...ALL_CATALOG_MONS];
+  if(monFavOnly)mons=mons.filter(m=>monFavorites.has(m.id));
+  if(monElFilters.size>0)mons=mons.filter(m=>m.el&&monElFilters.has(m.el));
+  if(monStageFilter==='base')mons=mons.filter(m=>m.stg==='基础');
+  if(monStageFilter==='awaken')mons=mons.filter(m=>m.stg==='觉醒');
+  if(monStageFilter==='special')mons=mons.filter(m=>m.stg==='特殊');
+  if(monSearchText){
+    const s=monSearchText.toLowerCase();
+    mons=mons.filter(m=>m.nm.toLowerCase().includes(s)||(m.lk||'').toLowerCase().includes(s)||(m.pas&&m.pas.t||'').includes(s));
+  }
+  return mons;
+}
+
+function onMonSearch(v){monSearchText=v;resetMonGrid();renderMonsterCatalog()}
+function toggleFavOnly(){monFavOnly=!monFavOnly;resetMonGrid();renderMonFilters();renderMonsterCatalog()}
+function toggleMonEl(el){if(monElFilters.has(el))monElFilters.delete(el);else monElFilters.add(el);resetMonGrid();renderMonFilters();renderMonsterCatalog()}
+function setMonStage(k){monStageFilter=k;resetMonGrid();renderMonFilters();renderMonsterCatalog()}
+function resetMonGrid(){monPage=0;Q('#mon-grid').innerHTML=''}
+
+/* 渲染魔弹卡片（翻页模式：每页monPerPage张，3行×4列） */
+function renderMonsterCatalog(){
+  const mons=getFilteredMons();
+  const total=Math.max(1,Math.ceil(mons.length/monPerPage));
+  if(monPage>=total)monPage=total-1;
+  const start=monPage*monPerPage;
+  const page=mons.slice(start,start+monPerPage);
+  if(mons.length===0){Q('#mon-grid').innerHTML='<div style="text-align:center;color:var(--dim);padding:30px;font-size:13px">😕 没有匹配的魔弹</div>';renderMonPagination(mons.length,total);return}
+  const h=page.map(m=>{
+    const css=m.el?EL_CSS[m.el]:'d';const en=m.el?EL_NAME[m.el]:'全';const faved=monFavorites.has(m.id)?' faved':'';
+    const stgCls=m.stg==='基础'?'stg-base':m.stg==='觉醒'?'stg-awaken':'stg-special';
+    const b=getMonBattles(m.id);const p=getDiceProbs(m.id);
+    const tags=[];
+    if(m.pas)tags.push(`<span class="cat-link-tag" style="border-color:rgba(52,152,219,.4);color:#5dade2">被动·${m.pas.t==='healTurn'?'自愈':m.pas.t==='reactShield'?'反盾':m.pas.t==='windCostDown'?'风减':m.pas.t==='multiDomain'?'全领域':m.pas.t}</span>`);
+    if(m.ult)tags.push(`<span class="cat-link-tag" style="border-color:rgba(231,76,60,.4);color:#ff6b6b">💥${m.ult.nm}</span>`);
+    if(m.lk)tags.push(`<span class="cat-link-tag" style="border-color:rgba(240,192,64,.25);color:var(--gold)">👤${m.lk}</span>`);
+    return`<div class="cat-mcard bd-${css}" id="mcard-${m.id}"
+        onmouseenter="showMonPopup(event,'${m.id}')" onmouseleave="hideMonPopup()"
+        onclick="showMonDetail('${m.id}')">
+      <span class="cat-fav${faved}" onclick="event.stopPropagation();toggleMonFav('${m.id}')">${faved?'❤️':'🤍'}</span>
+      <div class="cat-mimg">${catMonImgHTML(m.id)}</div>
+      <div class="cat-mname el-${css}">${m.nm}</div>
+      <div class="cat-minfo">${en}系 · ATK${m.atk} · 灵能${MAX_SP}</div>
+      <span class="cat-mstage ${stgCls}">${m.stg}</span>
+      <div class="cat-minfo" style="margin-top:2px;font-size:8px">已战${b}局 | 🎲6:${p[6].toFixed(0)}%</div>
+      <div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:2px;justify-content:center">${tags.join('')}</div>
+    </div>`;
+  }).join('');
+  Q('#mon-grid').innerHTML=h;
+  renderMonPagination(mons.length,total);
+}
+
+/* 翻页按钮 */
+function renderMonPagination(totalMons,totalPages){
+  const el=Q('#mon-pagination');if(!el)return;
+  if(totalPages<=1){el.style.display='none';return}
+  el.style.display='flex';
+  el.innerHTML=`<button class="cat-page-btn" onclick="goMonPage(-1)" ${monPage===0?'disabled':''}>◀ 上一页</button>
+    <span class="cat-page-info">${monPage+1} / ${totalPages}</span>
+    <button class="cat-page-btn" onclick="goMonPage(1)" ${monPage>=totalPages-1?'disabled':''}>下一页 ▶</button>`;
+}
+function goMonPage(delta){
+  monPage+=delta;
+  Q('#mon-grid').innerHTML='';
+  renderMonsterCatalog();
+  const grid=Q('#mon-grid');if(grid)grid.scrollTop=0;
+}
+
+/* 悬浮弹窗 */
+function showMonPopup(e,mid){
+  const m=getCatMon(mid);if(!m)return;
+  hideMonPopup();
+  const card=Q('#mcard-'+mid);if(!card)return;
+  const css=m.el?EL_CSS[m.el]:'d';const en=m.el?EL_NAME[m.el]:'全';
+  const b=getMonBattles(mid);const p=getDiceProbs(mid);
+  // 平衡数值
+  const gameMon=getMon(mid);const cards=gameMon?getCards(gameMon):[];
+  const avgCost=cards.length?(cards.reduce((s,c)=>s+(c.cost||0),0)/cards.length).toFixed(1):'无';
+  const maxShield=cards.filter(c=>c.tp==='shield').reduce((max,c)=>Math.max(max,c.fx.shield||0),0);
+  const critInfo=m.el?`克制×${getMul(m.el,COUNTER[m.el]).toFixed(2)}`:'全属性无克制';
+  const popup=document.createElement('div');popup.className='cat-popup';popup.id='mon-popup';
+  popup.innerHTML=`<div class="cat-popup-title el-${css}">${m.nm} 平衡数值</div>
+    <div class="cat-popup-row"><span class="lbl">基础ATK</span><span class="val">${m.atk}</span></div>
+    <div class="cat-popup-row"><span class="lbl">平均魔能消耗</span><span class="val" style="color:var(--gold)">${avgCost}</span></div>
+    <div class="cat-popup-row"><span class="lbl">最大护盾数值</span><span class="val" style="color:#5dade2">${maxShield||'无'}</span></div>
+    <div class="cat-popup-row"><span class="lbl">暴击倍率</span><span class="val" style="color:#ff6b6b">${critInfo}</span></div>
+    <div class="cat-popup-row"><span class="lbl">灵能上限</span><span class="val">${MAX_SP}</span></div>
+    <div class="cat-popup-row"><span class="lbl">🎲 六点概率</span><span class="val" style="color:var(--gold)">${p[6].toFixed(1)}%</span></div>`;
+  card.style.position='relative';card.appendChild(popup);
+}
+function hideMonPopup(){const p=Q('#mon-popup');if(p)p.remove()}
+
+/* 收藏切换 */
+function toggleMonFav(mid){
+  if(monFavorites.has(mid))monFavorites.delete(mid);else monFavorites.add(mid);
+  saveFavorites();
+  const card=Q('#mcard-'+mid);if(card){const fbtn=card.querySelector('.cat-fav');if(fbtn){fbtn.textContent=monFavorites.has(mid)?'❤️':'🤍';fbtn.classList.toggle('faved',monFavorites.has(mid))}}
+  renderMonFilters(); // 更新收藏计数
+}
+
+/* 魔弹详情弹窗 */
+function showMonDetail(mid){
+  const m=getCatMon(mid);if(!m)return;
+  const css=m.el?EL_CSS[m.el]:'d';const en=m.el?EL_NAME[m.el]:'全';
+  const b=getMonBattles(mid);const p=getDiceProbs(mid);
+  const gameMon=getMon(mid);const cards=gameMon?getCards(gameMon):[];
+  // PVP搭配推荐：基于元素克制推荐队友
+  let teamRec='';
+  if(m.el){
+    const weakTo=Object.entries(COUNTER).find(([,v])=>v===m.el);
+    const counterEl=weakTo?weakTo[0]:null;
+    if(counterEl){
+      const counterMons=ALL_CATALOG_MONS.filter(mm=>mm.el===counterEl&&mm.id!==m.id);
+      if(counterMons.length)teamRec='推荐搭配：'+counterMons.slice(0,4).map(mm=>mm.nm).join('、')+' （克制'+EL_NAME[counterEl]+'系对手）';
+    }
+  }
+  const overlay=document.createElement('div');overlay.className='cat-detail-overlay';overlay.id='cat-detail';
+  overlay.addEventListener('click',function(ev){if(ev.target===this)closeCatDetail()});
+  overlay.innerHTML=`<div class="cat-detail-modal">
+    <button class="btn-s btn-sm" style="float:right" onclick="closeCatDetail()">✕ 关闭</button>
+    <h2 class="el-${css}">${m.nm}</h2>
+    <div class="cat-detail-hero">${catMonImgHTML(m.id)}</div>
+    <div class="cat-detail-stats">
+      <div class="cat-detail-stat"><div class="sval el-${css}">${m.atk}</div><div class="slbl">基础ATK</div></div>
+      <div class="cat-detail-stat"><div class="sval" style="color:var(--gold)">${MAX_SP}</div><div class="slbl">灵能上限</div></div>
+      <div class="cat-detail-stat"><div class="sval" style="color:#5dade2">${b}</div><div class="slbl">累计对局</div></div>
+      <div class="cat-detail-stat"><div class="sval" style="color:#ff6b6b">${p[6].toFixed(1)}%</div><div class="slbl">🎲六点概率</div></div>
+    </div>
+    <div class="cat-detail-section">
+      <h3>📋 基本信息</h3>
+      <p>属性：${m.el?EL_ICON[m.el]:'🎭'} ${en}系 · 阶段：${m.stg} · 链接者：${m.lk||'无'}</p>
+    </div>
+    <div class="cat-detail-section">
+      <h3>⚡ 专属大招</h3>
+      <p>${m.ult?m.ult.nm+' — '+m.ult.dmg+'伤害（'+en+'系）':'无固定必杀（全领域掌控）'}</p>
+    </div>
+    <div class="cat-detail-section">
+      <h3>🎴 被动效果</h3>
+      <p>${m.pas?m.pas.t==='healTurn'?'每回合回复灵能'+m.pas.v:m.pas.t==='reactShield'?'被击时'+((m.pas.ch||0)*100)+'%概率生成'+m.pas.v+'护盾':m.pas.t==='windCostDown'?'风系卡牌消耗-'+m.pas.v:m.pas.t==='multiDomain'?'全领域掌控：全攻击+'+m.pas.atkBonus+'、全卡消耗-1':'—':'无被动'}</p>
+    </div>
+    <div class="cat-detail-section">
+      <h3>🃏 适配卡牌（${cards.length}张）</h3>
+      <p style="display:flex;flex-wrap:wrap;gap:4px">${cards.map(c=>`<span class="cat-link-tag" style="font-size:9px;padding:2px 8px" onclick="event.stopPropagation();closeCatDetail();jumpToCard('${c.id}')">${c.nm}${c.excl?'🔒':''}</span>`).join('')||'无'}</p>
+    </div>
+    <div class="cat-detail-section">
+      <h3>🎯 获取途径</h3>
+      <p>通过单人AI对战或双人PVP累计对局提升骰子概率。编队时在魔弹选择界面直接选用。</p>
+    </div>
+    <div class="cat-detail-section">
+      <h3>🤝 PVP搭配推荐</h3>
+      <p>${teamRec||'该魔弹为全属性/特殊类型，建议搭配属性互补的队友。'}</p>
+    </div>
+    <div style="text-align:center;margin-top:14px">
+      <button class="btn-p" onclick="closeCatDetail();catalogMonId='${m.id}';highlightMonCard('${m.id}')">⭐ 预选此魔弹</button>
+    </div>
+  </div>`;
+  document.body.appendChild(overlay);
+}
+function closeCatDetail(){const d=Q('#cat-detail');if(d)d.remove()}
+
+function highlightMonCard(mid){
+  const card=Q('#mcard-'+mid);if(!card)return;
+  card.scrollIntoView({behavior:'smooth',block:'center'});
+  card.style.borderColor='var(--gold)';card.style.boxShadow='0 0 24px rgba(240,192,64,.5)';
+  setTimeout(()=>{card.style.borderColor='';card.style.boxShadow=''},2000);
+}
+
+/* ========== 右侧：卡牌效果目录 ========== */
+
+function renderCardFilters(){
+  Q('#card-filter').innerHTML=`<input class="cat-search" id="card-search" placeholder="🔍 搜索效果关键词（破盾、眩晕、护盾...）" value="${escHtml(cardSearchText)}" oninput="onCardSearch(this.value)">`;
+}
+
+function renderCardCategories(){
+  const cats=['all','offense','defense','control','support','exclusive'];
+  Q('#card-categories').innerHTML=cats.map(k=>{
+    const active=cardCatFilter===k?' active':'';
+    return`<span class="cat-tree-item${active}" onclick="setCardCat('${k}')" title="${CAT_DESC[k]||''}">${k==='all'?'📋 全部':CAT_NAMES[k]}</span>`;
+  }).join('');
+}
+
+/* 卡牌翻页按钮 */
+function renderCardPagination(totalCards,totalPages){
+  const el=Q('#card-pagination');if(!el)return;
+  if(totalPages<=1){el.style.display='none';return}
+  el.style.display='flex';
+  el.innerHTML=`<button class="cat-page-btn" onclick="goCardPage(-1)" ${cardPage===0?'disabled':''}>◀ 上一页</button>
+    <span class="cat-page-info">${cardPage+1} / ${totalPages}</span>
+    <button class="cat-page-btn" onclick="goCardPage(1)" ${cardPage>=totalPages-1?'disabled':''}>下一页 ▶</button>`;
+}
+function goCardPage(delta){
+  cardPage+=delta;
+  Q('#card-grid').innerHTML='';
+  renderCardCatalog();
+  const grid=Q('#card-grid');if(grid)grid.scrollTop=0;
+}
+function resetCardGrid(){cardPage=0;Q('#card-grid').innerHTML=''}
+
+function onCardSearch(v){cardSearchText=v;resetCardGrid();renderCardCategories();renderCardCatalog()}
+function setCardCat(k){cardCatFilter=k;resetCardGrid();renderCardCategories();renderCardCatalog()}
+
+function getFilteredCards(){
+  let cards=[...CARDS];
+  if(cardCatFilter==='exclusive')cards=cards.filter(c=>!!c.excl);
+  else if(cardCatFilter!=='all')cards=cards.filter(c=>classifyCard(c)===cardCatFilter);
+  if(cardSearchText){
+    const s=cardSearchText.toLowerCase();
+    cards=cards.filter(c=>c.nm.toLowerCase().includes(s)||c.desc.toLowerCase().includes(s)||(c.tp||'').toLowerCase().includes(s)||Object.keys(c.fx||{}).some(k=>k.toLowerCase().includes(s)));
+  }
+  return cards;
+}
+
+/* 类型标签映射 */
+const TP_LABELS={dmg:'⚔️伤害',shield:'🛡护盾',heal:'💚回复',drain:'🩸汲取',buff:'⬆增益',debuff:'⬇减益',negate:'🚫抵消',lock:'🔐封印',clear:'✨净化',dodge:'💨闪避'};
+
+/* 卡牌适配魔弹*/
+function getCardMons(card){
+  if(card.excl){const m=getCatMon(card.excl);return m?[m]:[]}
+  return ALL_CATALOG_MONS.filter(m=>m.el===card.el);
+}
+
+function renderCardCatalog(){
+  const cards=getFilteredCards();
+  const total=Math.max(1,Math.ceil(cards.length/cardPerPage));
+  if(cardPage>=total)cardPage=total-1;
+  const start=cardPage*cardPerPage;
+  const page=cards.slice(start,start+cardPerPage);
+  if(cards.length===0){Q('#card-grid').innerHTML='<div style="text-align:center;color:var(--dim);padding:40px 20px;font-size:12px">😕 没有匹配的卡牌</div>';renderCardPagination(cards.length,total);return}
+  Q('#card-grid').innerHTML=page.map(c=>{
+    const css=c.el?EL_CSS[c.el]:'d';const en=c.el?EL_NAME[c.el]:'未知';
+    const mons=getCardMons(c);
+    const isAoe=c.desc.includes('群')||c.desc.includes('范围')||(c.fx||{}).aoe?'全体':'单体';
+    const durMatch=c.desc.match(/(\d+)回合/);const dur=durMatch?durMatch[1]:'即时';
+    return`<div class="cat-mcard bd-${css}" id="ccard-${c.id}"
+        onclick="catalogCardId='${c.id}';highlightCardCard('${c.id}')"
+        ondblclick="showCardDetail('${c.id}')" title="双击查看完整效果">
+      <div style="width:100%;height:90px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%);margin-bottom:4px;flex-shrink:0">
+        <img src="${getCardSVG(c.id)}" alt="${c.nm}" style="width:100%;height:100%;object-fit:contain!important" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="cat-mname el-${css}">${c.nm}${c.excl?'🔒':''}</div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap;justify-content:center;margin:2px 0;font-size:10px">
+        <span style="color:var(--gold);font-weight:700">⚡${c.cost}</span>
+        <span style="color:var(--dim)">${TP_LABELS[c.tp]||c.tp}</span>
+        ${c.dmg>0?`<span style="color:#ff6b6b;font-weight:700">💥${c.dmg}</span>`:''}
+      </div>
+      <div style="font-size:9px;color:var(--dim)">${isAoe} · ${dur} · ${en}系</div>
+      <div style="font-size:9px;color:rgba(255,255,255,.55);margin:2px 0;line-height:1.2;text-align:center;width:100%;word-break:break-all">${c.desc}</div>
+      <div style="margin-top:auto;display:flex;flex-wrap:wrap;gap:2px;justify-content:center;padding-top:2px">
+        ${mons.slice(0,3).map(m=>`<span class="cat-link-tag" onclick="event.stopPropagation();jumpToMonster('${m.id}')">${m.nm}</span>`).join('')}
+        ${mons.length>3?`<span class="cat-link-tag" style="border-color:rgba(255,255,255,.06);color:var(--dim)">+${mons.length-3}</span>`:''}
+      </div>
+      <div style="font-size:7px;color:rgba(255,255,255,.2);margin-top:2px">双击查看详情</div>
+    </div>`;
+  }).join('');
+  renderCardPagination(cards.length,total);
+}
+
+/* 卡牌效果详情弹窗 */
+function showCardDetail(cid){
+  const c=getCard(cid);if(!c)return;
+  const css=c.el?EL_CSS[c.el]:'d';const en=c.el?EL_NAME[c.el]:'未知';
+  const mons=getCardMons(c);
+  const fx=c.fx||{};
+  const effList=[];
+  if(c.dmg>0)effList.push(`💥 基础伤害：${c.dmg}`);
+  if(fx.shield)effList.push(`🛡 护盾值：${fx.shield}`);
+  if(fx.heal)effList.push(`💚 回复灵能：${fx.heal}`);
+  if(fx.drain)effList.push(`🩸 扣除灵能：${fx.drain}`);
+  if(fx.atkUp)effList.push(`⬆ 攻击加成：+${fx.atkUp}`);
+  if(fx.atkDown)effList.push(`⬇ 敌方降攻：-${fx.atkDown}`);
+  if(fx.dot)effList.push(`🔥 持续伤害：${fx.dot}/回合 ×${fx.dur||1}回合`);
+  if(fx.fireAtk)effList.push(`🔥 火攻加成：+${fx.fireAtk}`);
+  if(fx.wBonus)effList.push(`🍃 风伤加成：+${fx.wBonus}`);
+  if(fx.dodge||fx.dodgeAmt)effList.push(`💨 闪避上限：${fx.dodge||fx.dodgeAmt}`);
+  if(fx.negate)effList.push(`🚫 抵消敌方当前卡牌`);
+  if(fx.lock)effList.push(`🔐 封印敌方一张卡牌`);
+  if(fx.clrShield)effList.push(`💔 清除敌方护盾`);
+  if(fx.clrDeb)effList.push(`✨ 清除敌方debuff`);
+  if(fx.igShield)effList.push(`🗡 无视护盾≤${fx.igShield}`);
+  if(fx.perFire)effList.push(`🔥 每多1火卡+${fx.perFire}伤害`);
+  if(fx.lifeSteal)effList.push(`🩸 生命偷取${fx.lifeSteal}%`);
+  if(fx.rebound)effList.push(`↩ 反弹${fx.rebound}伤害`);
+  if(fx.reflectDmg)effList.push(`↩ 反射${fx.reflectDmg}伤害`);
+  if(fx.dmgReduce)effList.push(`🛡 减伤${fx.dmgReduce}`);
+  if(fx.ultiBlock)effList.push(`🔒 封锁敌方必杀`);
+  if(fx.costUpAll)effList.push(`⬆ 敌方全卡消耗+${fx.costUpAll}`);
+  if(fx.switchBlock)effList.push(`🔒 禁止切换主战`);
+  if(fx.immuneElement)effList.push(`🛡 免疫克制伤害`);
+  if(fx.immuneDot)effList.push(`🛡 免疫持续伤害`);
+  if(fx.healPerTurn)effList.push(`💚 每回合回复${fx.healPerTurn}`);
+  if(fx.tempEnergy)effList.push(`⚡ 获得${fx.tempEnergy}临时魔能`);
+  if(fx.aoe)effList.push('🌐 全体范围生效');
+  if(fx.perEnemyCard)effList.push(`🎴 敌每多1手牌追加${fx.perEnemyCard}伤害`);
+  if(fx.diceBonus)effList.push(`🎲 骰子点数+${fx.diceBonus}`);
+  if(fx.guaranteedCrit)effList.push(`💥 攻击必定暴击`);
+  if(fx.critNull)effList.push(`🚫 敌方暴击概率清零`);
+  if(fx.blockAoe)effList.push(`🚫 封锁敌方群体伤害`);
+  if(fx.blockHighDmg)effList.push(`🚫 封锁敌方高伤卡牌`);
+  if(fx.blockExclusive)effList.push(`🚫 封锁敌方专属卡牌`);
+  if(fx.buffNull)effList.push(`🚫 敌方增益效果失效`);
+  if(fx.healBlock)effList.push(`🚫 敌方无法回复灵能`);
+  if(fx.atkDrain)effList.push(`🩸 敌攻击额外流失${fx.atkDrain}灵能`);
+  if(fx.stealBuff)effList.push(`🔄 夺取敌方一层增益`);
+  if(fx.lightDmgBonus)effList.push(`✨ 光系伤害+${fx.lightDmgBonus}`);
+  if(fx.windCostDown)effList.push(`🍃 风系卡消耗-${fx.windCostDown}`);
+  if(Object.keys(fx).length===0&&c.dmg<=0)effList.push('📋 无额外效果');
+  const overlay=document.createElement('div');overlay.className='cat-detail-overlay';overlay.id='cat-card-detail';
+  overlay.addEventListener('click',function(ev){if(ev.target===this)closeCardDetail()});
+  overlay.innerHTML=`<div class="cat-detail-modal">
+    <button class="btn-s btn-sm" style="float:right" onclick="closeCardDetail()">✕ 关闭</button>
+    <h2 class="el-${css}" style="margin-bottom:4px">🃏 ${c.nm}</h2>
+    <div style="text-align:center;margin-bottom:10px">
+      <span style="color:var(--gold);font-size:18px;font-weight:900">⚡消耗${c.cost}</span>
+      <span style="color:var(--dim);margin:0 8px">|</span>
+      <span style="color:var(--dim)">${TP_LABELS[c.tp]||c.tp}</span>
+      <span style="color:var(--dim);margin:0 8px">|</span>
+      <span style="color:var(--dim)">${en}系${c.excl?' · 🔒专属':''}</span>
+    </div>
+    <div class="cat-detail-section"><h3>📝 效果描述</h3><p style="font-size:13px;color:var(--txt)">${c.desc}</p></div>
+    <div class="cat-detail-section"><h3>📊 详细数值</h3><p>${effList.map(e=>'<span style="display:block;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.03)">'+e+'</span>').join('')||'无'}</p></div>
+    <div class="cat-detail-section"><h3>🎯 适配魔弹（${mons.length}个）</h3><p style="display:flex;flex-wrap:wrap;gap:4px">${mons.map(m=>`<span class="cat-link-tag" style="font-size:10px;padding:3px 10px" onclick="event.stopPropagation();closeCardDetail();jumpToMonster('${m.id}')">${m.nm}</span>`).join('')||'无适配魔弹'}</p></div>
+    <div style="text-align:center;margin-top:12px"><button class="btn-p" onclick="closeCardDetail();catalogCardId='${c.id}';highlightCardCard('${c.id}')">⭐ 预选此卡</button></div>
+  </div>`;
+  document.body.appendChild(overlay);
+}
+function closeCardDetail(){const d=Q('#cat-card-detail');if(d)d.remove()}
+
+/* 从卡牌跳转到魔弹 */
+function jumpToMonster(mid){
+  monSearchText='';monElFilters.clear();monStageFilter='all';monFavOnly=false;
+  Q('#mon-grid').innerHTML='';
+  const mons=getFilteredMons();const idx=mons.findIndex(m=>m.id===mid);
+  monPage=idx>=0?Math.floor(idx/monPerPage):0;
+  renderMonFilters();renderMonsterCatalog();
+  setTimeout(()=>{
+    const panel=Q('#panel-monsters');
+    if(panel.classList.contains('collapsed'))panel.classList.remove('collapsed');
+    const card=Q('#mcard-'+mid);if(card){
+      card.scrollIntoView({behavior:'smooth',block:'center'});
+      card.style.borderColor='var(--gold)';card.style.boxShadow='0 0 30px rgba(240,192,64,.6)';
+      setTimeout(()=>{card.style.borderColor='';card.style.boxShadow=''},2500);
+    }
+  },200);
+}
+
+/* 从魔弹详情跳转到卡牌 */
+function jumpToCard(cid){
+  cardSearchText='';cardCatFilter='all';
+  renderCardFilters();renderCardCategories();renderCardCatalog();
+  setTimeout(()=>{
+    const panel=Q('#panel-cards');
+    if(panel.classList.contains('collapsed'))panel.classList.remove('collapsed');
+    const card=Q('#ccard-'+cid);if(card){
+      card.scrollIntoView({behavior:'smooth',block:'center'});
+      card.style.borderColor='var(--gold)';card.style.boxShadow='0 0 30px rgba(240,192,64,.6)';
+      setTimeout(()=>{card.style.borderColor='';card.style.boxShadow=''},2500);
+    }
+  },200);
+}
+
+/* --- 图鉴工具函数 --- */
+function getCatMon(id){return ALL_CATALOG_MONS.find(m=>m.id===id)||null}
+/* 为图鉴魔弹生成图片HTML（战内魔弹用MON_IMG，图鉴专用魔弹内嵌增强SVG） */
+function catMonImgHTML(mid,extraCls=''){
+  const m=getCatMon(mid);if(!m)return'<span class="mimg-fb">❓</span>';
+  if(MON_IMG[mid])return monImgHTML(mid,extraCls);
+  // 图鉴专用魔弹 — 内嵌简化增强SVG
+  const el=m.el||'none';const bg=EL_HEX[el]||'888';const lt={fire:'ff6b6b',light:'ffe066',earth:'e6b85c',dark:'c39bd3',water:'5dade2',wind:'58d68d',none:'aaa'}[el]||'aaa';
+  const icon=m.el?EL_ICON[m.el]:'🎭';const uid='x'+mid.replace(/[^a-z0-9]/g,'');
+  const svg='<svg xmlns="http://www.w3.org/2000/svg" width="220" height="300" viewBox="0 0 220 300">'
+    +'<defs><radialGradient id="bx'+uid+'" cx="50%" cy="40%"><stop offset="0%" stop-color="#'+lt+'" stop-opacity=".45"/><stop offset="50%" stop-color="#'+bg+'" stop-opacity=".2"/><stop offset="100%" stop-color="#0a0a14"/></radialGradient>'
+    +'<radialGradient id="cx'+uid+'" cx="50%" cy="50%"><stop offset="0%" stop-color="#'+lt+'" stop-opacity=".7"/><stop offset="100%" stop-color="#'+bg+'" stop-opacity="0"/></radialGradient>'
+    +'<filter id="fx'+uid+'"><feGaussianBlur stdDeviation="3"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'
+    +'<rect width="220" height="300" rx="14" fill="#0a0a14" stroke="#'+bg+'" stroke-width="2.5"/><rect width="220" height="300" rx="14" fill="url(#bx'+uid+')"/>'
+    +'<circle cx="110" cy="80" r="55" fill="none" stroke="#'+bg+'" stroke-width="1.5" opacity=".15"/><circle cx="110" cy="80" r="45" fill="none" stroke="#'+lt+'" stroke-width="1" opacity=".1" stroke-dasharray="8 5"/>'
+    +'<circle cx="110" cy="80" r="42" fill="url(#cx'+uid+')" opacity=".5"/><text x="110" y="102" text-anchor="middle" font-size="56" fill="#fff" filter="url(#fx'+uid+')">'+icon+'</text>'
+    +'<rect x="8" y="8" width="36" height="18" rx="9" fill="rgba(0,0,0,.6)" stroke="#'+bg+'" stroke-width="1.5"/><text x="26" y="21" text-anchor="middle" font-size="10" font-weight="900" fill="#'+lt+'">'+(m.el?EL_NAME[m.el]:'全')+'</text>'
+    +'<rect x="10" y="190" width="200" height="98" rx="8" fill="rgba(0,0,0,.55)" stroke="#'+bg+'" stroke-width="1" opacity=".6"/>'
+    +'<text x="110" y="222" text-anchor="middle" font-size="22" font-weight="900" fill="#'+lt+'" font-family="PingFang SC,Microsoft YaHei,sans-serif" filter="url(#fx'+uid+')">'+m.nm+'</text>'
+    +'<text x="110" y="248" text-anchor="middle" font-size="13" fill="rgba(255,255,255,.6)">⚔️ ATK '+m.atk+' · '+m.stg+'</text>'
+    +'<rect x="40" y="260" width="140" height="3" rx="1.5" fill="#'+bg+'" opacity=".4"/>'
+    +'<text x="110" y="278" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.35)">'+(m.el?EL_NAME[m.el]+'系':'全属性')+' · 图鉴</text></svg>';
+  return `<span class="mimg-wrap${extraCls?' '+extraCls:''}" data-mid="${mid}">
+    <img class="mimg" src="data:image/svg+xml,${encodeURIComponent(svg)}" alt="${m.nm}" onerror="this.parentElement.classList.add('mimg-err')">
+    <span class="mimg-fb">${icon}</span></span>`;
+}
+
+/* --- 前往对战试用 --- */
+function goBattleWithCatalog(){
+  if(!curUser){tip('请先登录');goLogin();return}
+  // 保存预选魔弹和卡牌
+  if(catalogMonId)try{sessionStorage.setItem('mdw_pre_mon',catalogMonId)}catch(e){}
+  if(catalogCardId)try{sessionStorage.setItem('mdw_pre_card',catalogCardId)}catch(e){}
+  // 检查预选魔弹是否在对战数据中
+  const preMon=catalogMonId?getMon(catalogMonId):null;
+  if(!preMon&&catalogMonId){tip('该魔弹暂未加入对战系统，请选择对战魔弹');return}
+  closeMo();goBattle();
+  try{
+    resetGS('pve');Q('#battle-log').innerHTML='';
+    showPickModal('p1',()=>{
+      try{
+        const used=GS.p1.monsters.map(m=>m.id);
+        const avail=MONSTERS.filter(m=>!used.includes(m.id));
+        GS.p2.monsters=pickRnd(avail,3).map(m=>JSON.parse(JSON.stringify(m)));GS.p2.aIdx=0;
+        GS.p2.monsters.forEach(m=>{if(m.id==='jiamianshengluo'&&!m._el){m._el=ALL_EL[rnd(ALL_EL.length)];m.el=m._el}});
+        preloadTeamImgs(GS.p2);
+        showCoinModal(()=>{
+          renderBattle(GS);startTurn(GS,()=>{
+            if(GS.over){showGameOver(GS);return}
+            if(GS.subTurn==='p2'){setTimeout(()=>aiSubTurn(GS),200)}
+          });
+          if(GS.turn==='p2'){setTimeout(()=>{if(GS.subTurn==='p2')aiSubTurn(GS)},200)}
+        });
+      }catch(e){console.error('startBattle错误:',e);tip('编队失败，请重试')}
+    });
+    // 如果预选了魔弹，默认勾选
+    if(preMon){
+      setTimeout(()=>{
+        if(!PICKED.includes(preMon.id)){if(PICKED.length>=3)PICKED.shift();PICKED.push(preMon.id);renderPickGrid();}
+      },300);
+    }
+  }catch(e){console.error(e);tip('启动失败')}
+}
+
+/* 文本转义 */
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+/* ============================================================ */
+
 function bind(){
   // 登录页
   Q('#btn-login').addEventListener('click',doLogin)
@@ -1619,6 +2701,7 @@ function bind(){
   // 大厅
   Q('#btn-pve').addEventListener('click',startPVE)
   Q('#btn-pvp').addEventListener('click',startPVP)
+  Q('#btn-catalog').addEventListener('click',goCatalog)
   Q('#btn-logout').addEventListener('click',doLogout)
   // 对战页按钮
   /* [修改·交替] 跳过按钮→playerPass；必杀自动交替 */
@@ -1629,6 +2712,8 @@ function bind(){
   Q('#bt-discard').addEventListener('click',()=>{if(GS.phase==='act'&&GS.subTurn==='p1'&&!GS.sideDone.has('p1')&&!GS.over&&!GS.discardUsed){GS.discardMode=!GS.discardMode;renderBattle(GS)}})
   Q('#bt-switch').addEventListener('click',()=>{if(GS.phase==='act'&&GS.subTurn==='p1'&&!GS.sideDone.has('p1')&&!GS.over){switchNow(GS)}})
   Q('#bt-back').addEventListener('click',()=>{if(GS.over||confirm('确定退出当前对局？'))goLobby()})
+  // 目录页快捷按钮
+  Q('#btn-catalog-battle').addEventListener('click',goBattleWithCatalog)
 }
 
 function init(){
